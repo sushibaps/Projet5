@@ -1,0 +1,170 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: 'Source Sans Pro', 'sans-serif' !important;
+}
+
+.social li a {
+    width: 2vw;
+    height: 4vh;
+    text-decoration: none;
+    border-width: 1px !important;
+    font-size: 1.1em;
+}
+
+.social li a:hover {
+    border-color: #121416 !important;
+}
+
+footer {
+    min-height: 10vh;
+}
+
+footer p {
+    font-size: 1em;
+}
+
+nav {
+    min-height: 13vh;
+    font-size: 1.2em;
+}
+
+.bouton {
+    width: 7vw;
+    height: 8vh;
+    font-size: 1em !important;
+    border-radius: 10% !important;
+}
+
+#figure {
+    width : 100vw;
+    height : 90vh;
+    margin : 0 !important;
+    position : relative;
+    background: url('../images/mountain.jpg') no-repeat center;
+    background-size : cover;
+}
+
+#figcaption {
+    position : absolute;
+    bottom : 35%;
+    width : 30vw;
+    height : 30vh;
+    color : white;
+    font-family : 'EB Garamond', 'serif';
+    text-align : center !important;
+}
+
+#figcaption p {
+    font-size : 1.5em !important;
+}
+
+figcaption {
+    font-size : 1.8em !important;
+}
+
+img {
+    max-width : 100%;
+}
+
+#landscape {
+    width : 100vw;
+    height: auto;
+    position : relative;
+}
+
+#landscape img {
+    max-width: 100%;
+}
+
+#lock {
+    width: 40vw;
+    height: 110vh;
+    position : absolute;
+    top: 30%;
+    left : 30%;
+    background-color: rgba(198, 204, 216, 0.5) !important;
+    box-shadow: 2px 2px 5px white;
+    color : #5B3E34;
+    font-size : 1.4em;
+}
+
+#ion {
+    font-size : 18em;
+    color : #67758A;
+}
+
+#loginform input {
+    background-color: transparent;
+    border-color: transparent;
+    border-bottom-color: #5B3E34 !important;
+}
+
+textarea {
+    resize : none;
+}
+
+.socialtitles {
+    font-size : 1.4em !important;
+}
+
+.scroll {
+    position : sticky;
+    top : 0;
+    z-index : 2;
+    background-color: white;
+    border : none !important;
+}
+
+.homediv:hover{
+    box-shadow : 3px 3px 10px gray;
+}
+
+.menu {
+    border-bottom : 2px solid transparent;
+}
+
+.menu:hover {
+    border-bottom : 2px solid black;
+}
+
+.categories {
+    border : 1px solid #dee2e6;
+    border-radius : 10px !important;
+    min-width : 4vw;
+}
+
+.categories:hover {
+    background-color : #dee2e6;
+}
+
+.categories h2 {
+    font-size : 1em !important;
+}
+
+.cart {
+    font-size : 1.5em !important;
+}
+
+.modalphoto{
+    max-height : calc(100vh - 200px);
+}
+
+.caca{
+    max-width : 20%;
+}
+
+.formtitle {
+    font-size : 3em !important;
+}
+
+.garamond {
+    font-family : 'EB Garamond', 'serif';
+}
+
+.label {
+    font-size : 1.3em !important;
+}
