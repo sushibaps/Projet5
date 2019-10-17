@@ -20,9 +20,9 @@
 </head>
 <body>
 <figure id="landscape">
-    <img src="{{asset('images/Amsterdam.jpg')}}" alt="Amsterdam">
+    <img src="{{asset('images/landscape.jpg')}}" alt="Landscape">
 </figure>
-<div id="lock" class="bg-light border rounded d-flex flex-column align-items-center">
+<div id="lock" class="border rounded d-flex flex-column align-items-center">
     <div>
         <ion-icon name="lock" id="ion"></ion-icon>
     </div>
@@ -36,9 +36,9 @@
             <label for="password">Mot de Passe</label>
             <input type="password" name="password" value="{{old('password', '')}}" class="form-control" placeholder="Entrez votre mot de passe">
         </div>
-        <button class="btn btn-primary" type="submit">S'identifier</button>
+        <button class="btn deepblue mt-2" type="submit">S'identifier</button>
     </form>
-    <small>Pas encore de compte? <a href="/account">Créez-en un !</a></small>
+    <small class="mt-3">Pas encore de compte? <a href="/account">Créez-en un !</a></small>
 </div>
 @yield('content')
 </body>

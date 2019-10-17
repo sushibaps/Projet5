@@ -20,6 +20,7 @@ class CreatePhotosTable extends Migration
             $table->text('path');
             $table->mediumText('description');
             $table->text('location');
+            $table->integer('price')->nullable();
         });
     }
 

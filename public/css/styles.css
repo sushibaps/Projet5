@@ -81,20 +81,20 @@ img {
 }
 
 #lock {
-    width: 40vw;
-    height: 110vh;
+    width: 30vw;
+    height: 80vh;
     position : absolute;
-    top: 30%;
-    left : 30%;
-    background-color: rgba(198, 204, 216, 0.5) !important;
+    top: 10%;
+    left : 35%;
+    background-color: rgba(245, 245, 247, 0.7) !important;
     box-shadow: 2px 2px 5px white;
     color : #5B3E34;
     font-size : 1.4em;
 }
 
 #ion {
-    font-size : 18em;
-    color : #67758A;
+    font-size : 10em;
+    color : #1c3154;
 }
 
 #loginform input {
@@ -167,4 +167,13 @@ textarea {
 
 .label {
     font-size : 1.3em !important;
+}
+
+.deepblue {
+    background-color : #1c3154;
+    color : white;
+}
+
+small a{
+    color : #1c3154;
 }
