@@ -13,12 +13,16 @@ class Basket extends Model
 
     // The attributes that should be hidden for the array
     protected $hidden = [
-        'userId',
-        'photoId',
-        'totalPrice'
+        'user_id',
+        'photo_id',
+        'total_price'
     ];
 
-    public function basket(){
-        return $this->belongsTo("App\Basket");
+    public function photo(){
+        return $this->belongsTo("App\Photo", "photo_id");
+    }
+
+    public function user(){
+        return $this->belongsTo("App\User", "user_id");
     }
 }

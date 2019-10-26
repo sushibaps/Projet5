@@ -43,11 +43,13 @@ class AdminController extends Controller
         $name = $request->input('name');
         $description = $request->input('description');
         $location = $request->input('location');
+        $price = $request->input('price');
         $photo = new Photo();
         $photo->name = $name;
         $photo->path = $path;
         $photo->description = $description;
         $photo->location = $location;
+        $photo->price = $price;
         $photo->save();
         $this->resizeSmall($path, $name);
         $this->resizeMedium($path, $name);

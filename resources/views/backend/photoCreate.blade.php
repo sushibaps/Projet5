@@ -17,8 +17,7 @@
                 {{Form::textarea('description', '', ['placeholder' => 'Description de la photographie', 'rows' => '20'])}}
             </div>
             <div class="mb-3">
-                {{Form::label('location', 'Localisation de la photographie')}}
-                {{Form::text('location')}}
+                {{Form::number('price', '0')}}
             </div>
             <div class="mb-3">
                 {{Form::file('data')}}

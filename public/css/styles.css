@@ -33,8 +33,8 @@ nav {
 }
 
 .bouton {
-    width: 7vw;
-    height: 8vh;
+    width: 30%;
+    height: 50%;
     font-size: 1em !important;
     border-radius: 10% !important;
 }
@@ -62,7 +62,7 @@ nav {
     font-size : 1.5em !important;
 }
 
-figcaption {
+.figcaption {
     font-size : 1.8em !important;
 }
 
@@ -176,4 +176,17 @@ textarea {
 
 small a{
     color : #1c3154;
+}
+
+.miniature {
+    max-width : 60%;
+}
+
+#container {
+    width : 30%;
+    height : 100%;
+}
+
+.box-shadow {
+    box-shadow: 3px 3px 6px #e6e9ec;
 }

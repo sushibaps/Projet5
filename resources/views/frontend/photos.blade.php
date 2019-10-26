@@ -34,13 +34,14 @@
                                             </button>
                                         </div>
                                         <div class="modal-body text-center">
-                                            <img src="/photo/{{$photos[$j]->id}}" alt="{{$photos[$j]->description}}" class="modalphoto">
+                                            <img src="/photo/{{$photos[$j]->id}}" alt="{{$photos[$j]->description}}"
+                                                 class="modalphoto">
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button"
-                                                    class="btn btn-primary d-flex justify-content-center align-items-center cart">
+                                            <a href="/basket/home/{{$photos[$j]->id}}"
+                                               class="btn btn-primary d-flex justify-content-center align-items-center cart">
                                                 <ion-icon name="cart"></ion-icon>
-                                            </button>
+                                            </a>
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
                                             </button>
                                         </div>
@@ -69,13 +70,14 @@
                                             </button>
                                         </div>
                                         <div class="modal-body text-center">
-                                            <img src="/photo/{{$photos[$j]->id}}" alt="{{$photos[$j]->description}}" class="modalphoto">
+                                            <img src="/photo/{{$photos[$j]->id}}" alt="{{$photos[$j]->description}}"
+                                                 class="modalphoto">
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button"
-                                                    class="btn btn-primary d-flex justify-content-center align-items-center cart">
+                                            <a href="/basket/home/{{$photos[$j]->id}}"
+                                               class="btn btn-primary d-flex justify-content-center align-items-center cart">
                                                 <ion-icon name="cart"></ion-icon>
-                                            </button>
+                                            </a>
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
                                             </button>
                                         </div>
@@ -111,10 +113,10 @@
                                 <img src="/photo/{{$photo->id}}" alt="{{$photo->description}}" class="modalphoto">
                             </div>
                             <div class="modal-footer">
-                                <button type="button"
-                                        class="btn btn-primary d-flex justify-content-center align-items-center cart">
+                                <a href="/basket/home/{{$photo->id}}"
+                                   class="btn btn-primary d-flex justify-content-center align-items-center cart">
                                     <ion-icon name="cart"></ion-icon>
-                                </button>
+                                </a>
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
                                 </button>
                             </div>

@@ -19,13 +19,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 // Simple view returning => call PagesController
-Route::get('/', 'PagesController@home');
+Route::get('/', 'PagesController@home')->middleware('rememberUrl');
 Route::get('/contact', 'PagesController@contact');
 Route::post('/contact', 'PagesController@postcontact');
 Route::get('/about', 'PagesController@about');
 Route::get('/login', 'PagesController@login');
 Route::get('/account', 'PagesController@register');
-Route::post('/logout', 'PagesController@logout');
+Route::get('/logout', 'PagesController@logout');
 
 // Categories handling
 Route::get('/galerie', 'CategoriesController@list');
@@ -35,6 +35,12 @@ Route::get('/photos', 'PhotosController@list');
 Route::get('/photo/{id}', 'PhotosController@getFile');
 Route::get('/photo/small/{id}', 'PhotosController@getMiniature');
 Route::get('/photo/medium/{id}', 'PhotosController@getMedium');
+
+// Baskets handling
+Route::get('/basket/home/{photoId}', 'BasketsController@home');
+Route::post('/basket/list/{photoId}', 'BasketsController@list');
+Route::get('/basket/menu', 'BasketsController@menu');
+Route::post('/basket/delete', 'BasketsController@delete');
 
 // Administrator interaction
 Route::post('/galerie', 'AdminController@categoryStore')->middleware('checkAdmin');

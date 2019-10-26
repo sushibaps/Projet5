@@ -2,10 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48c842c9-fb6e-4e03-8ec7-c893abc80f00" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/frontend/basket.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/frontend/basketRecap.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Basket.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Basket.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BasketsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BasketsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PagesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PagesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/CheckAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/CheckAdmin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Photo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Photo.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_28_104005_create_photos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_28_104005_create_photos_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_17_124119_create_baskets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_10_17_124119_create_baskets_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/log.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/log.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/photoCreate.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/photoCreate.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/photos.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/photos.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -143,7 +157,7 @@
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/storage/app/public" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -263,7 +277,17 @@
       <workItem from="1571178720927" duration="3000" />
       <workItem from="1571230279382" duration="33000" />
       <workItem from="1571230330082" duration="4623000" />
-      <workItem from="1571314716543" duration="2284000" />
+      <workItem from="1571314716543" duration="3584000" />
+      <workItem from="1571402153982" duration="9595000" />
+      <workItem from="1571427558664" duration="4216000" />
+      <workItem from="1571492844238" duration="4183000" />
+      <workItem from="1571738373784" duration="3629000" />
+      <workItem from="1571845390759" duration="3396000" />
+      <workItem from="1571858657107" duration="5863000" />
+      <workItem from="1571927103697" duration="627000" />
+      <workItem from="1572006677475" duration="3137000" />
+      <workItem from="1572040035455" duration="3539000" />
+      <workItem from="1572097878086" duration="1885000" />
     </task>
     <servers />
   </component>
@@ -275,7 +299,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

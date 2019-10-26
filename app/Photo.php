@@ -10,7 +10,9 @@ class Photo extends Model
         'id',
         'name',
         'path',
-        'category_id' //Peuvent être remplis par l'utilisateur
+        'description',
+        'location',
+        'price'
     ];
 
     public function photo(){

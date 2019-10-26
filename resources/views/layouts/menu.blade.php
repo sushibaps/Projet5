@@ -8,9 +8,15 @@
     <!-- Fontawesome and Bootstrap loading -->
     <link href="{{ asset('@fortawesome/fontawesome-free/css/all.css') }}" rel="stylesheet">
     <link href="{{ asset('bootstrap/dist/css/bootstrap.css') }}" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
     <!-- Global CSS file loading -->
     <link rel="stylesheet" href="{{asset('css/styles.css')}}">
     <!-- Google Font loading -->
@@ -22,7 +28,7 @@
     <!-- Ion-Icons Installation -->
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
     <!-- TinyMCE Integration -->
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <!--<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>-->
 
     <title>@yield('title')</title>
 </head>
@@ -30,13 +36,39 @@
 <div class="container-fluid d-flex justify-content-center scroll">
     <nav class="container d-flex align-items-center pl-5 pr-5 border-bottom">
         <ul class="list-unstyled d-flex justify-content-between align-items-center w-50 mb-0 h-100">
-            <li class="menu h-100 w-25 d-flex justify-content-center align-items-center"><a href="/" class="text-dark text-decoration-none">Accueil</a></li>
-            <li class="menu h-100 w-25 d-flex justify-content-center align-items-center"><a href="/galerie" class="text-dark text-decoration-none">Catégories</a></li>
-            <li class="menu h-100 w-25 d-flex justify-content-center align-items-center"><a href="/photos" class="text-dark text-decoration-none">Photographies</a></li>
-            <li class="menu h-100 w-25 d-flex justify-content-center align-items-center"><a href="/about" class="text-dark text-decoration-none">À propos</a></li>
+            <li class="menu h-100 w-25 d-flex justify-content-center align-items-center"><a href="/"
+                                                                                            class="text-dark text-decoration-none">Accueil</a>
+            </li>
+            <li class="menu h-100 w-25 d-flex justify-content-center align-items-center"><a href="/galerie"
+                                                                                            class="text-dark text-decoration-none">Catégories</a>
+            </li>
+            <li class="menu h-100 w-25 d-flex justify-content-center align-items-center"><a href="/photos"
+                                                                                            class="text-dark text-decoration-none">Photographies</a>
+            </li>
+            <li class="menu h-100 w-25 d-flex justify-content-center align-items-center"><a href="/about"
+                                                                                            class="text-dark text-decoration-none">À
+                    propos</a></li>
         </ul>
-        <a class="ml-auto text-dark text-decoration-none d-flex justify-content-center align-items-center bouton"
-           href="/login"><ion-icon name="finger-print"></ion-icon> Log In</a>
+        @guest
+            <a class="ml-auto text-dark text-decoration-none d-flex justify-content-center align-items-center bouton"
+               href="/login">
+                <ion-icon name="finger-print"></ion-icon>
+                Log In</a>
+        @endguest
+        @auth
+            <div class="offset-2 d-flex flex-row justify-content-around align-items-center" id="container">
+                <a href="/basket/menu"
+                   class="text-primary text-decoration-none d-flex justify-content-center align-items-center bouton">
+                    <ion-icon name="cart" class="mr-1"></ion-icon>
+                    Panier
+                </a>
+                <a class="text-danger text-decoration-none d-flex justify-content-center align-items-center bouton"
+                   href="/logout">
+                    <i class="fas fa-sign-out-alt mr-1"></i>
+                    Déconnexion
+                </a>
+            </div>
+        @endauth
     </nav>
 </div>
 
@@ -73,9 +105,5 @@
     </div>
     <p class="text-secondary mt-4">Copyright 2019 © Julien Thuret. Tous droits réservés</p>
 </footer>
-<form action="/logout" method="POST">
-    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-    <button type="submit">Déconnexion</button>
-</form>
 </body>
 </html>

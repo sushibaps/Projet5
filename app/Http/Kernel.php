@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\RememberUrl;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -58,6 +59,7 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'checkAdmin' => \App\Http\Middleware\CheckAdmin::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        'rememberUrl' => \App\Http\Middleware\RememberUrl::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,

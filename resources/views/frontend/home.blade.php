@@ -32,7 +32,7 @@
             -->
             <figure class="text-center d-flex flex-column align-items-center mt-5 pt-5 mb-5">
                 <img src="/photo/{{$photo->id}}" alt="Photographie">
-                <figcaption class="text-center mt-4 border-bottom w-25 mb-4 garamond">{{$photo->name}}</figcaption>
+                <figcaption class="text-center mt-4 border-bottom w-25 mb-4 garamond figcaption">{{$photo->name}}</figcaption>
                 <p>{{$photo->description}}</p>
                 <p class="align-self-end font-italic">{{$photo->location}}</p>
             </figure>

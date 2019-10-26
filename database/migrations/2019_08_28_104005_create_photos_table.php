@@ -19,8 +19,8 @@ class CreatePhotosTable extends Migration
             $table->text('name');
             $table->text('path');
             $table->mediumText('description');
-            $table->text('location');
-            $table->integer('price')->nullable();
+            $table->text('location')->nullable();
+            $table->bigInteger('price')->nullable();
         });
     }
 

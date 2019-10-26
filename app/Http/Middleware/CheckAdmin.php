@@ -18,9 +18,9 @@ class CheckAdmin
     public function handle($request, Closure $next)
     {
         if (Auth::guest() || !Auth::user()->isAdmin){
+            $request->session()->put('url', $request->getRequestUri());
             return response()->redirectTo("/login");
         }
-
         return $next($request);
     }
 }
