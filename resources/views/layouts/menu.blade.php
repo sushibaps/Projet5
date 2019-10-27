@@ -28,7 +28,7 @@
     <!-- Ion-Icons Installation -->
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
     <!-- TinyMCE Integration -->
-    <!--<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>-->
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
     <title>@yield('title')</title>
 </head>
@@ -84,17 +84,11 @@
 <footer class="min-vw-100 d-flex flex-column align-items-center justify-content-around mt-5 pt-4">
     <div class="container d-flex justify-content-around border-top border-bottom pt-4">
         <div>
-            <h2 class="socialtitles mb-3">Réseaux sociaux</h2>
+            <h2 class="socialtitles mb-3">Retrouvez-moi sur Instagram</h2>
             <ul class="list-unstyled d-flex justify-content-around align-items-center social">
-                <li><a href=""
-                       class="text-secondary border border-secondary rounded-circle d-flex justify-content-center align-items-center"><i
-                            class="fab fa-facebook-f"></i></a></li>
-                <li><a href=""
-                       class="text-secondary border border-secondary rounded-circle d-flex justify-content-center align-items-center mt-3 mb-3"><i
+                <li><a href="https://www.instagram.com/julienthuret/"
+                       class="text-secondary border border-secondary rounded-circle d-flex justify-content-center align-items-center mt-3 mb-3" target="_blank"><i
                             class="fab fa-instagram"></i></a></li>
-                <li><a href=""
-                       class="text-secondary border border-secondary rounded-circle d-flex justify-content-center align-items-center"><i
-                            class="fab fa-twitter"></i></a></li>
             </ul>
         </div>
         <div class="d-flex flex-column">

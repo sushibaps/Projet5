@@ -2,22 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48c842c9-fb6e-4e03-8ec7-c893abc80f00" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/frontend/basket.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/frontend/basketRecap.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Basket.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Basket.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BasketsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BasketsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PagesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PagesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/CheckAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/CheckAdmin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Photo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Photo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_28_104005_create_photos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_28_104005_create_photos_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_17_124119_create_baskets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_10_17_124119_create_baskets_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PhotosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PhotosController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/RememberUrl.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/RememberUrl.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend/photoCreate.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/photoCreate.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/basket.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/basket.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/basketRecap.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/basketRecap.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/frontend/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/photos.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/photos.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/menu.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -287,7 +282,11 @@
       <workItem from="1571927103697" duration="627000" />
       <workItem from="1572006677475" duration="3137000" />
       <workItem from="1572040035455" duration="3539000" />
-      <workItem from="1572097878086" duration="1885000" />
+      <workItem from="1572097878086" duration="6614000" />
+      <workItem from="1572115542768" duration="1957000" />
+      <workItem from="1572181025742" duration="2409000" />
+      <workItem from="1572198945761" duration="1096000" />
+      <workItem from="1572202272601" duration="3847000" />
     </task>
     <servers />
   </component>

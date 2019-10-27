@@ -35,12 +35,14 @@ Route::get('/photos', 'PhotosController@list');
 Route::get('/photo/{id}', 'PhotosController@getFile');
 Route::get('/photo/small/{id}', 'PhotosController@getMiniature');
 Route::get('/photo/medium/{id}', 'PhotosController@getMedium');
+Route::get('/photo/large/{id}', 'PhotosController@getLarge');
 
 // Baskets handling
-Route::get('/basket/home/{photoId}', 'BasketsController@home');
-Route::post('/basket/list/{photoId}', 'BasketsController@list');
+Route::get('/basket/home/{photoId}', 'BasketsController@home')->middleware('checkAdmin');
+Route::post('/basket/list/{photoId}', 'BasketsController@list')->middleware('checkAdmin');
 Route::get('/basket/menu', 'BasketsController@menu');
 Route::post('/basket/delete', 'BasketsController@delete');
+Route::post('/basket/delete/item', 'BasketsController@deleteItem');
 
 // Administrator interaction
 Route::post('/galerie', 'AdminController@categoryStore')->middleware('checkAdmin');

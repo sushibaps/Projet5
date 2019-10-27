@@ -5,6 +5,8 @@ window.addEventListener('scroll', (event)=>{
 
 window.addEventListener('load', (event)=>{
     tinymce.init({
-        selector: 'textarea'
+        selector: "textarea",
+        resize: false,
+        width: "100%"
     });
 });

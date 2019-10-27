@@ -14,22 +14,26 @@ class AdminController extends Controller
         $this->middleware('checkAdmin');
     }
 
-    public function photoCreate(){
-        return view ('backend.photoCreate');
+    public function photoCreate()
+    {
+        return view('backend.photoCreate');
     }
 
-    public function categoryCreate(){
-        return view ('backend.galeriecreate');
+    public function categoryCreate()
+    {
+        return view('backend.galeriecreate');
     }
 
-    public function delete(){
+    public function delete()
+    {
         $category = new Category();
         $category->name = \request('name');
         Category::where('name', '=', $category->name)->delete();
         return redirect('/galerie');
     }
 
-    public function categoryStore(){
+    public function categoryStore()
+    {
         $category = new Category();
         $category->name = \request('name');
         $category->level = \request('level');
@@ -38,7 +42,8 @@ class AdminController extends Controller
         return redirect('/galerie');
     }
 
-    public function photoStore(Request $request){
+    public function photoStore(Request $request)
+    {
         $path = $request->file('data')->store('storage/uploads');
         $name = $request->input('name');
         $description = $request->input('description');
@@ -51,28 +56,33 @@ class AdminController extends Controller
         $photo->location = $location;
         $photo->price = $price;
         $photo->save();
-        $this->resizeSmall($path, $name);
-        $this->resizeMedium($path, $name);
+        $this->resize($path, $name, 'small');
+        $this->resize($path, $name, 'medium');
+        $this->resize($path, $name, 'large');
 
         return redirect('/photos');
     }
 
-    public function resizeSmall($path, $name){
+    public function resize($path, $name, $format)
+    {
         // open an image file
         $img = Image::make(storage_path() . '/app/' . $path);
         // now you are able to resize the instance
-        $img->resize(320, null, function ($constraint) {
+        switch ($format) {
+            case ('small') :
+                $width = 320;
+                break;
+            case ('medium'):
+                $width = 720;
+                break;
+            case ('large'):
+                $width = 1200;
+                break;
+        }
+        $img->resize($width, null, function ($constraint) {
             $constraint->aspectRatio();
         });
         // finally we save the image as a new file
-        $img->save(storage_path() . '/app/storage/small/' . $name . '.jpeg');
-    }
-
-    public function resizeMedium($path, $name){
-        $img = Image::make(storage_path() . '/app/' . $path);
-        $img->resize(720, null, function ($constraint) {
-            $constraint->aspectRatio();
-        });
-        $img->save(storage_path() . '/app/storage/medium/' . $name . '.jpeg');
+        $img->save(storage_path() . '/app/storage/' . $format . '/' . $name . '.jpeg');
     }
 }

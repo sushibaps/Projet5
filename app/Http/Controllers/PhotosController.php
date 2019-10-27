@@ -37,4 +37,9 @@ class PhotosController extends Controller
         $photo = Photo::findOrFail($id);
         return response()->file(storage_path() . '/app/storage/medium/' . $photo->name . '.jpeg');
     }
+
+    public function getLarge($id){
+        $photo = Photo::findOrFail($id);
+        return response()->file(storage_path() . '/app/storage/large/' . $photo->name . '.jpeg');
+    }
 }

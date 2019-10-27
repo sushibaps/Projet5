@@ -3,7 +3,6 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Support\Facades\Session;
 
 class RememberUrl
 {
@@ -17,7 +16,9 @@ class RememberUrl
     public function handle($request, Closure $next)
     {
         if($request->session()->has('url')){
-            return response()->redirectTo($request->session()->get('url'));
+            $url = $request->session()->get('url');
+            $request->session()->forget('url');
+            return response()->redirectTo($url);
         } else {
             return $next($request);
         }

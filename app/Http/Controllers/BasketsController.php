@@ -25,18 +25,12 @@ class BasketsController extends Controller
      */
     public function list($photoId)
     {
-        if (Auth::guest()) {
-            return redirect('/login')->with([
-                'message' => "Vous devez vous authentifier pour effectuer cette action"
-            ]);
-        } else {
-            $basket = new Basket();
-            $basket->user_id = Auth::id();
-            $basket->quantity = \request('quantity');
-            $basket->photo_id = $photoId;
-            $basket->save();
-            return redirect('/basket/menu');
-        }
+        $basket = new Basket();
+        $basket->user_id = Auth::id();
+        $basket->quantity = \request('quantity');
+        $basket->photo_id = $photoId;
+        $basket->save();
+        return redirect('/basket/menu');
     }
 
     public function menu()
@@ -48,7 +42,7 @@ class BasketsController extends Controller
         } else {
             try {
                 $count = Basket::all()->count();
-                if($count > 0){
+                if ($count > 0) {
                     $baskets = Basket::where('user_id', '=', Auth::id())->get();
                     return view('frontend.basketRecap')->with([
                         'baskets' => $baskets
@@ -68,6 +62,11 @@ class BasketsController extends Controller
     public function delete()
     {
         $basket = Basket::where('user_id', '=', \request('user_id'))->delete();
-        return redirect('/');
+        return redirect('/basket/menu');
+    }
+
+    public function deleteItem(){
+        $basket = Basket::where('id', '=', \request('basket_id'))->delete();
+        return redirect('/basket/menu');
     }
 }

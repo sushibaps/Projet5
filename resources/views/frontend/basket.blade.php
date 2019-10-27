@@ -9,14 +9,15 @@
     <div class="container-fluid mt-5">
         <div class="container-fluid d-flex mb-5 justify-content-between">
             <figure class="miniature m-3">
-                <img src="/photo/{{$photo->id}}" alt="{{$photo->description}}">
+                <img src="/photo/medium/{{$photo->id}}" alt="{{$photo->description}}">
             </figure>
             <div class="bg-light box-shadow border rounded-lg p-5 mt-3" id="container">
                 <p class="cart">1. Choisir la quantité</p>
                 <form action="/basket/list/{{$photo->id}}" method="post"
                       class="d-flex flex-column justify-content-around">
                     {{csrf_field()}}
-                    <input type="number" name="quantity" class="form-control" value="1">
+                    <input type="number" name="quantity" class="form-control" value="1" min="1">
+                    <p class="cart mt-5">Prix : {{$photo->price}} €</p>
                     <button type="submit" class="btn btn-primary mt-5 w-75 align-self-end">Ajouter au panier</button>
                 </form>
             </div>
