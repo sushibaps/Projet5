@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Photo;
@@ -9,6 +10,11 @@ use App\Basket;
 
 class BasketsController extends Controller
 {
+
+    /**
+     * @param $photoId id de la photo réservée par l'utilisateur
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function home($photoId)
     {
         $photo = Photo::findOrFail($photoId);
@@ -25,11 +31,17 @@ class BasketsController extends Controller
      */
     public function list($photoId)
     {
-        $basket = new Basket();
-        $basket->user_id = Auth::id();
-        $basket->quantity = \request('quantity');
-        $basket->photo_id = $photoId;
-        $basket->save();
+        try {
+            $basket = Basket::where('photo_id', '=', $photoId)->firstOrFail();
+            $basket->quantity = $basket->quantity + \request('quantity');
+            $basket->save();
+        } catch (ModelNotFoundException $exception) {
+            $basket = new Basket();
+            $basket->user_id = Auth::id();
+            $basket->quantity = \request('quantity');
+            $basket->photo_id = $photoId;
+            $basket->save();
+        }
         return redirect('/basket/menu');
     }
 
@@ -61,12 +73,13 @@ class BasketsController extends Controller
 
     public function delete()
     {
-        $basket = Basket::where('user_id', '=', \request('user_id'))->delete();
+        Basket::where('user_id', '=', \request('user_id'))->delete();
         return redirect('/basket/menu');
     }
 
-    public function deleteItem(){
-        $basket = Basket::where('id', '=', \request('basket_id'))->delete();
+    public function deleteItem()
+    {
+        Basket::where('id', '=', \request('basket_id'))->delete();
         return redirect('/basket/menu');
     }
 }

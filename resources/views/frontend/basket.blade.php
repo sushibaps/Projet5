@@ -9,7 +9,7 @@
     <div class="container-fluid mt-5">
         <div class="container-fluid d-flex mb-5 justify-content-between">
             <figure class="miniature m-3">
-                <img src="/photo/medium/{{$photo->id}}" alt="{{$photo->description}}">
+                <img src="/photo/medium/{{$photo->id}}" alt="{!! $photo->description !!}">
             </figure>
             <div class="bg-light box-shadow border rounded-lg p-5 mt-3" id="container">
                 <p class="cart">1. Choisir la quantité</p>
@@ -24,7 +24,7 @@
         </div>
         <div class="container d-flex flex-column justify-content-between bg-light box-shadow border rounded-lg p-5 mt-3 ml-4">
             <h2 class="mb-5">Description de la photographie</h2>
-            <p class="font-italic">{{$photo->description}}</p>
+            <p class="font-italic">{!! $photo->description !!}</p>
         </div>
     </div>
 @endsection

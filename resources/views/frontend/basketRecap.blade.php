@@ -20,11 +20,11 @@
                         class="container d-flex justify-content-between border rounded-lg bg-light mb-5 p-5 box-shadow">
                         @if(isset($basket->photo))
                             <figure class="miniature m-3">
-                                <img src="/photo/small/{{$basket->photo->id}}" alt="{{$basket->photo->description}}">
+                                <img src="/photo/small/{{$basket->photo->id}}" alt="{!! $basket->photo->description !!}">
                             </figure>
                             <div class="d-flex flex-column h-auto">
                                 <h2 class="garamond text-center">{{$basket->photo->name}}</h2>
-                                <p class="">{{$basket->photo->description}}</p>
+                                <p class="">{!! $basket->photo->description !!}</p>
                             </div>
                         @endif
                         <div class="d-flex flex-column justify-content-center">
