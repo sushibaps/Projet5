@@ -16,8 +16,8 @@
                 <form action="/basket/list/{{$photo->id}}" method="post"
                       class="d-flex flex-column justify-content-around">
                     {{csrf_field()}}
-                    <input type="number" name="quantity" class="form-control" value="1" min="1">
-                    <p class="cart mt-5">Prix : {{$photo->price}} €</p>
+                    <input type="number" name="quantity" class="form-control" value="1" min="1" v-model="nb" @change="compute()">
+                    <p class="cart mt-5">Prix : @{{ total }} €</p>
                     <button type="submit" class="btn btn-primary mt-5 w-75 align-self-end">Ajouter au panier</button>
                 </form>
             </div>
@@ -27,4 +27,22 @@
             <p class="font-italic">{!! $photo->description !!}</p>
         </div>
     </div>
+@endsection
+
+@section('script')
+    <script>
+        var vue = new Vue({
+            el: "#vue",
+            data: {
+                nb: 1,
+                pu: {{$photo->price}},
+                total: {{$photo->price}}
+                },
+            methods:{
+               compute(){
+                   this.total = this.nb * this.pu;
+               }
+            }
+        });
+    </script>
 @endsection

@@ -2,12 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Actualite;
+use App\Basket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Photo;
 
 class PagesController extends Controller
 {
+    public function actus(){
+        $actus = Actualite::all();
+        return view('frontend.actus')->with([
+            'actus' => $actus
+        ]);
+    }
+
     public function home()
     {
         $nb = Photo::all()->max('id');

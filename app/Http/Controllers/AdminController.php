@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Photo;
+use App\Actualite;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 
@@ -12,6 +13,30 @@ class AdminController extends Controller
     public function __construct()
     {
         $this->middleware('checkAdmin');
+    }
+
+    public function actusCreate(){
+        $photos = Photo::orderBy('id', "desc")->get();
+        $count = $photos->count();
+        $div = intdiv($count, 4);
+        return view ('backend.actusCreate')->with([
+            'photos' => $photos,
+            'count' => $count,
+            'div' => $div
+        ]);
+    }
+
+    public function actusStore(Request $request){
+        $actu = new Actualite();
+        $actu->title = \request('title');
+        $actu->newsletter = \request('newsletter');
+        if($request->has('photo_id')){
+            $actu->photo_id = $request->input('photo_id');
+        } else {
+            $photo = new Photo();
+            $photo->name = $request->input('name');
+        }
+        return redirect('/actus');
     }
 
     public function photoCreate()

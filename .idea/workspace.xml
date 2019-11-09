@@ -2,10 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48c842c9-fb6e-4e03-8ec7-c893abc80f00" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/actusCreate.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/frontend/actus.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/frontend/confirmation.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/frontend/test.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BasketsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BasketsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PagesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PagesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PhotosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PhotosController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_28_145828_create_actualites_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_10_28_145828_create_actualites_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/frontend/basket.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/basket.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/frontend/basketRecap.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/basketRecap.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,7 +29,7 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
-      <executable />
+      <executable path="composer" />
     </execution>
   </component>
   <component name="DatabaseView">
@@ -278,7 +291,21 @@
       <workItem from="1572181025742" duration="2409000" />
       <workItem from="1572198945761" duration="1096000" />
       <workItem from="1572202272601" duration="3847000" />
-      <workItem from="1572266864768" duration="5635000" />
+      <workItem from="1572266864768" duration="7792000" />
+      <workItem from="1572345768853" duration="2092000" />
+      <workItem from="1572349188004" duration="1321000" />
+      <workItem from="1572526295107" duration="32000" />
+      <workItem from="1572526396724" duration="1850000" />
+      <workItem from="1572858252408" duration="11519000" />
+      <workItem from="1572882973579" duration="3297000" />
+      <workItem from="1572893390273" duration="7000" />
+      <workItem from="1572898583332" duration="1968000" />
+      <workItem from="1572939018368" duration="10159000" />
+      <workItem from="1573059326480" duration="4369000" />
+      <workItem from="1573093793322" duration="2855000" />
+      <workItem from="1573136273411" duration="2573000" />
+      <workItem from="1573216858248" duration="2083000" />
+      <workItem from="1573316243407" duration="6467000" />
     </task>
     <servers />
   </component>

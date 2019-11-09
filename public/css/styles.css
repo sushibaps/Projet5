@@ -165,6 +165,10 @@ textarea {
     font-family : 'EB Garamond', 'serif';
 }
 
+.manjari {
+    font-family: 'Manjari', 'sans-serif';
+}
+
 .label {
     font-size : 1.3em !important;
 }
@@ -199,4 +203,8 @@ small a{
 .accueilfigure {
     max-width : 80vw;
     max-height : 150vh;
+}
+
+.choice:hover {
+    cursor : pointer;
 }

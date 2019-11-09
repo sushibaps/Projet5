@@ -23,10 +23,13 @@
     <link href="https://fonts.googleapis.com/css?family=Manjari|Source+Sans+Pro|EB+Garamond&display=swap"
           rel="stylesheet">
 
+    <!-- App.js -->
+    <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
     <!-- Script declaration -->
     <script type="text/javascript" src="{{asset('js/script.js')}}"></script>
     <!-- Ion-Icons Installation -->
-    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
     <!-- TinyMCE Integration -->
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
@@ -45,9 +48,9 @@
             <li class="menu h-100 w-25 d-flex justify-content-center align-items-center"><a href="/photos"
                                                                                             class="text-dark text-decoration-none">Photographies</a>
             </li>
-            <li class="menu h-100 w-25 d-flex justify-content-center align-items-center"><a href="/about"
-                                                                                            class="text-dark text-decoration-none">À
-                    propos</a></li>
+            <li class="menu h-100 w-25 d-flex justify-content-center align-items-center"><a href="/actus"
+                                                                                            class="text-dark text-decoration-none">Actualités</a>
+            </li>
         </ul>
         @guest
             <a class="ml-auto text-dark text-decoration-none d-flex justify-content-center align-items-center bouton"
@@ -76,7 +79,7 @@
     @yield('prologue')
 </header>
 
-<section class="min-vh-100">
+<section class="min-vh-100" id="vue">
     @yield('content')
 </section>
 
@@ -87,7 +90,8 @@
             <h2 class="socialtitles mb-3">Retrouvez-moi sur Instagram</h2>
             <ul class="list-unstyled d-flex justify-content-around align-items-center social">
                 <li><a href="https://www.instagram.com/julienthuret/"
-                       class="text-secondary border border-secondary rounded-circle d-flex justify-content-center align-items-center mt-3 mb-3" target="_blank"><i
+                       class="text-secondary border border-secondary rounded-circle d-flex justify-content-center align-items-center mt-3 mb-3"
+                       target="_blank"><i
                             class="fab fa-instagram"></i></a></li>
             </ul>
         </div>
@@ -99,5 +103,6 @@
     </div>
     <p class="text-secondary mt-4">Copyright 2019 © Julien Thuret. Tous droits réservés</p>
 </footer>
+@yield('script')
 </body>
 </html>

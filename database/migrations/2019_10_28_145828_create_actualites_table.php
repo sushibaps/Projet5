@@ -15,6 +15,7 @@ class CreateActualitesTable extends Migration
     {
         Schema::create('actualites', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->text('title')->nullable();
             $table->bigInteger('photo_id')->unsigned()->nullable();
             $table->foreign('photo_id')->references('id')->on('photos');
             $table->mediumText('newsletter');

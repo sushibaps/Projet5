@@ -45,6 +45,15 @@ class BasketsController extends Controller
         return redirect('/basket/menu');
     }
 
+    public function update($photoId, $quantity)
+    {
+        $basket = Basket::where('photo_id', '=', $photoId)->firstOrFail();
+        $basket->quantity = $quantity;
+        $basket->save();
+
+        return redirect('/basket/menu');
+    }
+
     public function menu()
     {
         if (Auth::guest()) {
@@ -53,11 +62,23 @@ class BasketsController extends Controller
             ]);
         } else {
             try {
-                $count = Basket::all()->count();
-                if ($count > 0) {
-                    $baskets = Basket::where('user_id', '=', Auth::id())->get();
+                $baskets = Basket::where('user_id', '=', Auth::id())->get();
+                if ($baskets->count() > 0) {
+                    $count = $baskets->count();
+                    $paniers = [];
+                    foreach ($baskets as $basket) {
+                        $panier['id'] = $basket->id;
+                        $panier['quantity'] = $basket->quantity;
+                        $panier['price'] = $basket->photo->price;
+                        $panier['photo_id'] = $basket->photo->id;
+                        $panier['photo_name'] = $basket->photo->name;
+                        $panier['photo_description'] = $basket->photo->description;
+                        array_push($paniers, $panier);
+                    }
+                    $paniers = json_encode($paniers);
                     return view('frontend.basketRecap')->with([
-                        'baskets' => $baskets
+                        'paniers' => $paniers,
+                        'count' => $count
                     ]);
                 } else
                     return view('frontend.basketRecap')->with([
@@ -71,15 +92,28 @@ class BasketsController extends Controller
         }
     }
 
+    public function confirm(){
+        $count = \request('count');
+        $baskets = [];
+        for($i = 0; $i < $count; $i++){
+            $id = \request('panier' . $i);
+            $basket = Basket::where('id', '=', $id)->get();
+            array_push($baskets, $basket);
+        }
+        return view('frontend.confirmation')->with([
+            'baskets' => $baskets
+        ]);
+    }
+
     public function delete()
     {
-        Basket::where('user_id', '=', \request('user_id'))->delete();
+        Basket::where('user_id', '=', Auth::id())->delete();
         return redirect('/basket/menu');
     }
 
-    public function deleteItem()
+    public function deleteItem($panierId)
     {
-        Basket::where('id', '=', \request('basket_id'))->delete();
+        Basket::where('id', '=', $panierId)->delete();
         return redirect('/basket/menu');
     }
 }

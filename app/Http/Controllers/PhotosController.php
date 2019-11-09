@@ -12,7 +12,6 @@ class PhotosController extends Controller
 {
     public function list(){
         $photos = Photo::orderBy('id', "desc")->get();
-        // $count = Photo::all()->count();
         $count = $photos->count();
         $div = intdiv($count, 4);
         return view ('frontend.photos')->with([

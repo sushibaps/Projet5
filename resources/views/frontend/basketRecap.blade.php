@@ -9,51 +9,81 @@
         <p>{{$exception}}</p>
     @elseif(isset($message))
         <p>{{$message}}</p>
-    @else
+    @elseif(isset($paniers))
         <div class="container">
             <h1 class="mt-5">Votre panier : </h1>
         </div>
-        @foreach($baskets as $basket)
-            @if(isset($basket) || $basket!== null)
-                <div class="container-fluid pt-5">
-                    <div
-                        class="container d-flex justify-content-between border rounded-lg bg-light mb-5 p-5 box-shadow">
-                        @if(isset($basket->photo))
-                            <figure class="miniature m-3">
-                                <img src="/photo/small/{{$basket->photo->id}}" alt="{!! $basket->photo->description !!}">
-                            </figure>
-                            <div class="d-flex flex-column h-auto">
-                                <h2 class="garamond text-center">{{$basket->photo->name}}</h2>
-                                <p class="">{!! $basket->photo->description !!}</p>
-                            </div>
-                        @endif
-                        <div class="d-flex flex-column justify-content-center">
-                            <p>Quantité : </p>
-                            <form action="/basket/list/{{$basket->photo->id}}" method="post"
-                                  class="d-flex flex-column justify-content-around">
-                                {{csrf_field()}}
-                                <input type="number" name="quantity" min="1" value="{{$basket->quantity}}">
-                                <button type="submit" class="btn btn-primary mt-3 w-75 align-self-end">Modifier</button>
-                            </form>
+        <div class="container-fluid d-flex mt-5">
+            <form action="/basket/confirm" method="post" class="container d-flex flex-column">
+                {{csrf_field()}}
+                @verbatim
+                    <div class="d-flex justify-content-around bg-light border rounded-lg mt-5"
+                         v-for="(panier, index) in paniers">
+                        <figure class="miniature m-3">
+                            <img v-bind:src=" '/photo/small/' + panier.photo_id"
+                                 v-bind:alt="panier.photo_description">
+                        </figure>
+                        <div>
+                            <h2> Titre : {{ panier.photo_name }}</h2>
+                            <p> Description : {{ panier.photo_description }}</p>
                         </div>
-                        <div class="d-flex flex-column justify-content-center">
-                            <p>{{$basket->photo->price * $basket->quantity}} euros</p>
+                        <div>
+                            <p>Quantité :</p>
+                            <input type="number" min="1" name="quantity" v-model="panier.quantity"
+                                   @change="compute(panier)">
+                            <input type="hidden" v-bind:name="'panier' + index" v-bind:value="panier.id">
                         </div>
-                        <form action="/basket/delete/item" method="post" class="d-flex flex-column justify-content-end">
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <input type="hidden" name="basket_id" value="{{$basket->id}}">
-                            <button type="submit" class="text-danger delete"><i class="fas fa-trash-alt"></i></button>
-                        </form>
+                        <div>
+                            <p>Prix unitaire : {{ panier.price }}</p>
+                            <p>Prix total : {{ panier.total }}</p>
+                        </div>
+                        <a v-bind:href="'/basket/update/' + panier.photo_id + '/' + panier.quantity">Modifier</a>
+                        <a v-bind:href="'/basket/delete/item/' + panier.id" class="text-danger"><i
+                                class="fas fa-trash-alt"></i></a>
                     </div>
-                </div>
-            @else
-                <p>Pas de contenu dans le panier désolé</p>
-            @endif
-        @endforeach
-        <form action="/basket/delete" method="post" class="mt-5 d-flex justify-content-end container">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <input type="hidden" name="user_id" value="{{$basket->user_id}}">
-            <button type="submit" class="btn btn-danger">Supprimer le contenu du panier</button>
-        </form>
+                    <input type="hidden" name="number" v-bind:value="index">
+                    <p class="mt-5 ml-auto">Prix total de votre panier : {{ total }}</p>
+                    <a href="/basket/delete/" class="text-danger">Supprimer votre panier</a>
+                @endverbatim
+                <input type="hidden" name="count" value="{{$count}}">
+                <button type="submit" class="btn btn-primary w-25 ml-auto">Confirmer votre achat</button>
+            </form>
+        </div>
     @endif
+@endsection
+
+
+@section('script')
+    @if(isset($paniers))
+        <script>
+            var vue = new Vue({
+                el: "#vue",
+                data: {
+                    paniers: {!! $paniers !!}
+                },
+                methods: {
+                    compute(panier) {
+                        panier.total = panier.quantity * panier.price;
+                        this.$forceUpdate();
+                    }
+                },
+                computed: {
+                    total() {
+                        let result = 0;
+                        for (panier of this.paniers) {
+                            result += panier.price * panier.quantity;
+                        }
+                        return result;
+                    }
+                },
+                mounted() {
+                    for (panier of this.paniers) {
+                        panier.total = panier.price * panier.quantity;
+                    }
+                    this.paniers = [...this.paniers];
+                }
+            });
+        </script>
+    @endif
+
 @endsection
