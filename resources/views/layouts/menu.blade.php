@@ -36,7 +36,7 @@
     <title>@yield('title')</title>
 </head>
 <body>
-<div class="container-fluid d-flex justify-content-center scroll">
+<div class="container-fluid d-flex justify-content-center scroll mb-5">
     <nav class="container d-flex align-items-center pl-5 pr-5 border-bottom">
         <ul class="list-unstyled d-flex justify-content-between align-items-center w-50 mb-0 h-100">
             <li class="menu h-100 w-25 d-flex justify-content-center align-items-center"><a href="/"
@@ -79,7 +79,7 @@
     @yield('prologue')
 </header>
 
-<section class="min-vh-100" id="vue">
+<section class="min-vh-100 mb-5" id="vue">
     @yield('content')
 </section>
 

@@ -72,7 +72,7 @@ class BasketsController extends Controller
                         $panier['price'] = $basket->photo->price;
                         $panier['photo_id'] = $basket->photo->id;
                         $panier['photo_name'] = $basket->photo->name;
-                        $panier['photo_description'] = $basket->photo->description;
+                        $panier['photo_description'] = strip_tags($basket->photo->description);
                         array_push($paniers, $panier);
                     }
                     $paniers = json_encode($paniers);
@@ -92,7 +92,7 @@ class BasketsController extends Controller
         }
     }
 
-    public function confirm(){
+    public function confirm(Request $request){
         $count = \request('count');
         $baskets = [];
         for($i = 0; $i < $count; $i++){

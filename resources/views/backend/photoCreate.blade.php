@@ -24,6 +24,11 @@
             <div class="mb-5">
                 {{Form::file('data')}}
             </div>
+            <div>
+                <div class="d-flex justify-content-around mt-5 pb-5 border-bottom">
+                    @include('frontend.listCat', ['categories' => $tree])
+                </div>
+            </div>
             <button type="submit" class="btn btn-primary w-25">Envoyer</button>
             {{Form::close()}}
         </div>

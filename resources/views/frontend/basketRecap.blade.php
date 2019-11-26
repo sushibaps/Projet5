@@ -43,7 +43,7 @@
                     </div>
                     <input type="hidden" name="number" v-bind:value="index">
                     <p class="mt-5 ml-auto">Prix total de votre panier : {{ total }}</p>
-                    <a href="/basket/delete/" class="text-danger">Supprimer votre panier</a>
+                    <a href="/basket/delete/" class="text-danger ml-auto mb-5">Supprimer votre panier</a>
                 @endverbatim
                 <input type="hidden" name="count" value="{{$count}}">
                 <button type="submit" class="btn btn-primary w-25 ml-auto">Confirmer votre achat</button>

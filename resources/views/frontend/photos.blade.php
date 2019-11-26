@@ -18,7 +18,7 @@
                         @for($j = ($div * $i); $j < $p; $j++)
                             <figure class="mb-3 homediv">
                                 <a href="#Modal{{$j}}" data-toggle="modal">
-                                    <img src="/photo/{{$photos[$j]->id}}" alt="{{$photos[$j]->description}}">
+                                    <img src="/photo/medium/{{$photos[$j]->id}}" alt="{{$photos[$j]->description}}">
                                 </a>
                             </figure>
 
@@ -54,7 +54,7 @@
                         @for($j = 0; $j < (intdiv($count, 4)); $j++)
                             <figure class="mb-3 homediv">
                                 <a href="#Modal{{$j}}" data-toggle="modal">
-                                    <img src="/photo/{{$photos[$j]->id}}" alt="{{$photos[$j]->description}}">
+                                    <img src="/photo/medium/{{$photos[$j]->id}}" alt="{{$photos[$j]->description}}">
                                 </a>
                             </figure>
 
@@ -94,7 +94,7 @@
             @foreach($photos as $photo)
                 <figure class="caca homediv">
                     <a href="#Modal{{$photo->id}}" data-toggle="modal">
-                        <img src="/photo/{{$photo->id}}" alt="{{$photo->description}}">
+                        <img src="/photo/medium/{{$photo->id}}" alt="{{$photo->description}}">
                     </a>
                 </figure>
 

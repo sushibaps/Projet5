@@ -18,4 +18,8 @@ class Photo extends Model
     public function photo(){
         return $this->belongsTo("App\Photo");
     }
+
+    public function categories(){
+        return $this->belongsToMany('\App\Category');
+    }
 }

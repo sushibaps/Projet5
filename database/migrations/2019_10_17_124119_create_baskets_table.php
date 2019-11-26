@@ -19,7 +19,7 @@ class CreateBasketsTable extends Migration
             $table->bigInteger('photo_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('photo_id')->references('id')->on('photos');
-            $table->integer('quantity')->default(0)->nullable();
+            $table->integer('quantity')->default(1);
             $table->integer('total_price')->nullable();
             $table->timestamps();
         });

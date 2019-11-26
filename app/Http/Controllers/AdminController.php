@@ -15,38 +15,74 @@ class AdminController extends Controller
         $this->middleware('checkAdmin');
     }
 
-    public function actusCreate(){
+    public function actusCreate()
+    {
         $photos = Photo::orderBy('id', "desc")->get();
         $count = $photos->count();
         $div = intdiv($count, 4);
-        return view ('backend.actusCreate')->with([
+        return view('backend.actusCreate')->with([
             'photos' => $photos,
             'count' => $count,
             'div' => $div
         ]);
     }
 
-    public function actusStore(Request $request){
+    public function actusStore(Request $request)
+    {
         $actu = new Actualite();
-        $actu->title = \request('title');
-        $actu->newsletter = \request('newsletter');
-        if($request->has('photo_id')){
+        $actu->title = $request->input('title');
+        $actu->newsletter = $request->input('newsletter');
+        if ($request->has('photo_id')) {
             $actu->photo_id = $request->input('photo_id');
         } else {
             $photo = new Photo();
+            $path = $request->file('data')->store('storage/uploads');
+            $name = $request->input('name');
             $photo->name = $request->input('name');
+            $photo->path = $path;
+            $photo->description = $request->input('description');
+            $photo->price = $request->input('price');
+            $photo->save();
+            $this->resize($path, $name, 'small');
+            $this->resize($path, $name, 'medium');
+            $this->resize($path, $name, 'large');
+            $actu->photo_id = $photo->id;
         }
+        $actu->save();
         return redirect('/actus');
     }
 
-    public function photoCreate()
+    public function recurse($category)
     {
-        return view('backend.photoCreate');
+        foreach ($category->children as $souscat) {
+            $this->recurse($souscat);
+        }
+    }
+
+    public function tree($categories)
+    {
+        $tree = [];
+        foreach ($categories as $category) {
+            $this->recurse($category);
+            $cat = $category->toArray();
+            array_push($tree, $cat);
+        }
+        return $tree;
     }
 
     public function categoryCreate()
     {
-        return view('backend.galeriecreate');
+        $categories = Category::where('level', 0)->orderBy('name')->get();
+        $tree = $this->tree($categories);
+        $photos = Photo::orderBy('id', "desc")->get();
+        $count = $photos->count();
+        $div = intdiv($count, 4);
+        return view('backend.galeriecreate')
+            ->withTree($tree)
+            ->withPhotos($photos)
+            ->withCount($count)
+            ->withDiv($div);
+
     }
 
     public function delete()
@@ -57,14 +93,45 @@ class AdminController extends Controller
         return redirect('/galerie');
     }
 
-    public function categoryStore()
+    public function categoryStore(Request $request)
     {
-        $category = new Category();
-        $category->name = \request('name');
-        $category->level = \request('level');
+        $count = Category::all()->count();
+        if ($count > 0) {
+            $category = new Category();
+            $oldcategories = Category::all();
+            $level = 0;
+            foreach ($oldcategories as $oldcategory) {
+                if ($request->has('category' . $oldcategory->id)) {
+                    $category->category_id = $oldcategory->id;
+                    if ($oldcategory->level >= $level) {
+                        $level = $oldcategory->level + 1;
+                    }
+                }
+            }
+            $category->level = $level;
+        } else {
+            $category = new Category();
+            $category->level = 0;
+        }
+        $category->name = $request->input('name');
+        $category->description = $request->input('description');
         $category->save();
+        $photos = Photo::all();
+        foreach($photos as $photo){
+            if($request->has('photo' . $photo->id)){
+                $category->photos()->attach($photo->id);
+            }
+        }
 
         return redirect('/galerie');
+    }
+
+    public function photoCreate()
+    {
+        $categories = Category::where('level', 0)->orderBy('name')->get();
+        $tree = $this->tree($categories);
+        return view('backend.photoCreate')
+            ->withTree($tree);
     }
 
     public function photoStore(Request $request)
@@ -78,12 +145,17 @@ class AdminController extends Controller
         $photo->name = $name;
         $photo->path = $path;
         $photo->description = $description;
-        $photo->location = $location;
         $photo->price = $price;
         $photo->save();
         $this->resize($path, $name, 'small');
         $this->resize($path, $name, 'medium');
         $this->resize($path, $name, 'large');
+        $categories = Category::all();
+        foreach($categories as $category){
+            if($request->has('category' . $category->id)){
+                $photo->categories()->attach($category->id);
+            }
+        }
 
         return redirect('/photos');
     }

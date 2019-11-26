@@ -31,6 +31,7 @@ Route::get('/actus', 'PagesController@actus');
 
 // Categories handling
 Route::get('/galerie', 'CategoriesController@list');
+Route::get('/galerie/{displayId}', 'CategoriesController@getList');
 
 // Photos handling
 Route::get('/photos', 'PhotosController@list');
@@ -51,7 +52,7 @@ Route::post('/basket/confirm', 'BasketsController@confirm');
 // Administrator interaction
 Route::post('/galerie', 'AdminController@categoryStore')->middleware('checkAdmin');
 Route::get('/galerie/create', 'AdminController@categoryCreate')->middleware('checkAdmin');
-Route::post('/galerie/delete', 'AdminController@categoryDelete')->middleware('checkAdmin');
+Route::post('/galerie/delete', 'AdminController@delete')->middleware('checkAdmin');
 
 Route::get('/photos/create', 'AdminController@photoCreate')->middleware('checkAdmin');
 Route::post('/photos/create', 'AdminController@photoStore')->middleware('checkAdmin');
