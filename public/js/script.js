@@ -7,6 +7,7 @@ window.addEventListener('load', (event)=>{
     tinymce.init({
         selector: "textarea",
         resize: false,
-        width: "100%"
+        width: "100%",
+        height : 500
     });
 });

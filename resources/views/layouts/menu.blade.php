@@ -36,8 +36,8 @@
     <title>@yield('title')</title>
 </head>
 <body>
-<div class="container-fluid d-flex justify-content-center scroll mb-5">
-    <nav class="container d-flex align-items-center pl-5 pr-5 border-bottom">
+<div class="container-fluid d-flex justify-content-center scroll">
+    <nav class="container-fluid d-flex align-items-center border-bottom">
         <ul class="list-unstyled d-flex justify-content-between align-items-center w-50 mb-0 h-100">
             <li class="menu h-100 w-25 d-flex justify-content-center align-items-center"><a href="/"
                                                                                             class="text-dark text-decoration-none">Accueil</a>
@@ -59,13 +59,13 @@
                 Log In</a>
         @endguest
         @auth
-            <div class="offset-2 d-flex flex-row justify-content-around align-items-center" id="container">
+            <div class="offset-3 d-flex flex-row justify-content-around align-items-center" id="container">
                 <a href="/basket/menu"
-                   class="text-primary text-decoration-none d-flex justify-content-center align-items-center bouton">
+                   class="text-primary text-decoration-none d-flex justify-content-center align-items-center bouton border border-primary rounded p-2">
                     <ion-icon name="cart" class="mr-1"></ion-icon>
                     Panier
                 </a>
-                <a class="text-danger text-decoration-none d-flex justify-content-center align-items-center bouton"
+                <a class="text-danger text-decoration-none d-flex justify-content-center align-items-center boutondeco border border-danger rounded p-2"
                    href="/logout">
                     <i class="fas fa-sign-out-alt mr-1"></i>
                     Déconnexion

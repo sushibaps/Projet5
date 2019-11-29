@@ -20,13 +20,22 @@ class PagesController extends Controller
     public function home()
     {
         $nb = Photo::all()->max('id');
-        if ($nb !== null) {
+        $count = Actualite::all()->count();
+        if($nb !== null || $count > 0){
+            $actu = Actualite::findOrFail($count);
             $photo = Photo::findOrFail($nb);
-            return view('frontend.home')->with([
-                'photo' => $photo
-            ]);
-        } else
+            if($actu->created_at->format('U') > $photo->created_at->format('U')){
+                return view('frontend.home')
+                    ->withActu($actu);
+            } else{
+                return view('frontend.home')->with([
+                    'photo' => $photo
+                ]);
+            }
+        } else {
             return view('frontend.home');
+        }
+
     }
 
     public function contact()

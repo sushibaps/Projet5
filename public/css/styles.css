@@ -33,10 +33,15 @@ nav {
 }
 
 .bouton {
-    width: 30%;
-    height: 50%;
+    min-width: 6vw;
+    min-height: 7vh;
     font-size: 1em !important;
-    border-radius: 10% !important;
+}
+
+.boutondeco {
+    min-width: 6vw;
+    min-height: 7vh;
+    font-size: 1em !important;
 }
 
 #figure {
@@ -188,12 +193,16 @@ small a{
 }
 
 #container {
-    width : 30%;
+    min-width : 20%;
     height : 100%;
 }
 
 .box-shadow {
     box-shadow: 6px 6px 6px #e6e9ec;
+}
+
+.box-shadow-sm {
+    box-shadow : 3px 3px 10px #e6e9ec;
 }
 
 .delete {
@@ -205,7 +214,21 @@ small a{
     max-width : 80vw;
 }
 
+.choice {
+    font-size : 1.1em;
+}
+
 .choice:hover {
+    background-color : #e6e9ec;
+    border-color: #e6e9ec !important;
+    box-shadow : 2px 2px 5px gray;
+    cursor : pointer;
+}
+
+.focus {
+    background-color : #e6e9ec;
+    border-color: #e6e9ec !important;
+    box-shadow : 2px 2px 5px gray;
     cursor : pointer;
 }
 
@@ -225,4 +248,14 @@ small a{
 
 .checkfigure {
     position : relative;
+}
+
+.absolute {
+    position : absolute;
+    bottom : 10%;
+    right : 10%;
+}
+
+.actupicture {
+    font-size : 1.1em;
 }

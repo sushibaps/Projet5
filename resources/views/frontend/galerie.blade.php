@@ -7,7 +7,7 @@
 @section('content')
     <h1 class="text-center align-self-center display-3 mt-5 mb-5 categorytitle">Thèmes</h1>
     <div class="d-flex flex-column mt-5 mb-5 align-items-center container">
-        <div class="d-flex justify-content-around mt-5 pb-5 border-bottom">
+        <div class="d-flex flex-column justify-content-around mt-5 pb-5 border-bottom">
             @include('frontend.cat', ['categories' => $tree])
         </div>
     </div>
@@ -63,7 +63,11 @@
         </div>
     @endif
 
-    <a href="/galerie/create">Création de catégories</a>
-    <br>
-    <a href="/photo">Consulter uniquement les photographies</a>
+    @auth
+        @if(Auth::user()->isAdmin)
+            <a href="/galerie/create">Création de catégories</a>
+            <br>
+            <a href="/photo">Consulter uniquement les photographies</a>
+        @endif
+    @endauth
 @endsection

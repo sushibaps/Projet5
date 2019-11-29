@@ -25,7 +25,7 @@
                 {{Form::file('data')}}
             </div>
             <div>
-                <div class="d-flex justify-content-around mt-5 pb-5 border-bottom">
+                <div class="d-flex flex-column justify-content-around mt-5 pb-5 border-bottom bg-light">
                     @include('frontend.listCat', ['categories' => $tree])
                 </div>
             </div>

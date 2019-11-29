@@ -5,8 +5,6 @@
 @endsection
 
 @section('content')
-    <h1 class="mt-5 text-center">Galerie de photos</h1>
-
     <div>
         <form action="/galerie" method="post" class="container">
             {{csrf_field()}}

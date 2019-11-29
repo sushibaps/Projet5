@@ -5,17 +5,21 @@
 @endsection
 
 @section('content')
+    <div class="container-fluid d-flex justify-content-center mt-5 mb-5">
+        <h1 class="w-25php text-center border-bottom mt-5 mb-5 pb-3 figcaption">Liste des photographies</h1>
+    </div>
     @if($div > 0)
         <div class="container-fluid mt-5 d-flex justify-content-around">
             @for($i = 0; $i < 4; $i++)
                 <div class="col-3">
                     @if($i > 0)
                         @php
+                            $newdiv = $count / 4;
                             $k = ($i + 1)/4;
                             $m = $k * $count;
                             $p = floor($m);
                         @endphp
-                        @for($j = ($div * $i); $j < $p; $j++)
+                        @for($j = floor($newdiv * $i); $j < $p ; $j++)
                             <figure class="mb-3 homediv">
                                 <a href="#Modal{{$j}}" data-toggle="modal">
                                     <img src="/photo/medium/{{$photos[$j]->id}}" alt="{{$photos[$j]->description}}">
@@ -48,7 +52,6 @@
                                     </div>
                                 </div>
                             </div>
-
                         @endfor
                     @else
                         @for($j = 0; $j < (intdiv($count, 4)); $j++)
@@ -128,5 +131,9 @@
     @endif
 
     <br/>
-    <a href="/photos/create">Création de photo</a>
+    @auth
+        @if(Auth::user()->isAdmin)
+            <a href="/photos/create">Création de photo</a>
+        @endif
+    @endauth
 @endsection

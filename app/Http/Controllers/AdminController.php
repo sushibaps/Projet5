@@ -32,8 +32,14 @@ class AdminController extends Controller
         $actu = new Actualite();
         $actu->title = $request->input('title');
         $actu->newsletter = $request->input('newsletter');
-        if ($request->has('photo_id')) {
-            $actu->photo_id = $request->input('photo_id');
+        $images = Photo::all();
+        foreach ($images as $image) {
+            if ($request->has('photo' . $image->id)) {
+                $actu->photo_id = $request->input('photo' . $image->id);
+            }
+        }
+        if (isset($actu->photo_id)) {
+
         } else {
             $photo = new Photo();
             $path = $request->file('data')->store('storage/uploads');
@@ -85,11 +91,11 @@ class AdminController extends Controller
 
     }
 
-    public function delete()
+    public function delete($id)
     {
-        $category = new Category();
-        $category->name = \request('name');
-        Category::where('name', '=', $category->name)->delete();
+        $category = Category::where('id', '=', $id)->first();
+        $category->photos()->detach();
+        Category::where('id', '=', $id)->delete();
         return redirect('/galerie');
     }
 
@@ -117,8 +123,8 @@ class AdminController extends Controller
         $category->description = $request->input('description');
         $category->save();
         $photos = Photo::all();
-        foreach($photos as $photo){
-            if($request->has('photo' . $photo->id)){
+        foreach ($photos as $photo) {
+            if ($request->has('photo' . $photo->id)) {
                 $category->photos()->attach($photo->id);
             }
         }
@@ -151,8 +157,8 @@ class AdminController extends Controller
         $this->resize($path, $name, 'medium');
         $this->resize($path, $name, 'large');
         $categories = Category::all();
-        foreach($categories as $category){
-            if($request->has('category' . $category->id)){
+        foreach ($categories as $category) {
+            if ($request->has('category' . $category->id)) {
                 $photo->categories()->attach($category->id);
             }
         }

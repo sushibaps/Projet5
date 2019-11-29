@@ -52,15 +52,16 @@ class CategoriesController extends Controller
             $admin = 1;
         }
         $count = Category::find($displayId)->photos()->count();
+        $view = view('frontend.galerie');
         if ($count > 0) {
             $photos = Category::find($displayId)->photos()->get();
-            return view('frontend.galerie')
+            return $view
                 ->withPhotos($photos)
                 ->withDisplayId($displayId)
                 ->withTree($tree)
                 ->withAdmin($admin);
         } else {
-            return view('frontend.galerie')
+            return $view
                 ->withMessage('Cette catégorie ne contient pas de photographies pour le moment')
                 ->withTree($tree)
                 ->withAdmin($admin);
