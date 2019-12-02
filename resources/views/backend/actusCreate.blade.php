@@ -7,23 +7,37 @@
 @section('content')
     <div class="container-fluid d-flex flex-column align-items-center mt-5">
         <h1 class="w-25 mt-5 mb-5 formtitle garamond border-bottom">Création d'actualité</h1>
-        {{Form::open(array('url' => '/actus/create', 'files' => true, 'class' => 'd-flex flex-column mt-5 container'))}}
+        @if(isset($actu))
+            {{Form::open(array('url' => '/actus/update', 'files' => true, 'class' => 'd-flex flex-column mt-5 container'))}}
+        @else
+            {{Form::open(array('url' => '/actus/create', 'files' => true, 'class' => 'd-flex flex-column mt-5 container'))}}
+        @endif
         <div class="mb-5 mt-5 d-flex flex-column align-items-center">
             <label for="title" id="label" class="mb-3 label text-center garamond">Titre de l'actualité : </label>
             <input type="text" name="title" id="title"
-                   class="mb-5 border-top-0 border-right-0 border-left-0 w-75 text-center">
+                   class="mb-5 border-top-0 border-right-0 border-left-0 w-75 text-center"
+                   @if(isset($actu))
+                   value="{{$actu->title}}"
+                @endif>
         </div>
         <div class="mb-5 d-flex flex-column align-items-center">
             <label for="newsletter" class="mb-3 label text-center garamond">Contenu de l'actualité :</label>
             <textarea name="newsletter" id="newsletter" cols="80" rows="20"
-                      placeholder="Entrez votre texte ici"></textarea>
+                      placeholder="Entrez votre texte ici">@if(isset($actu))
+                    {{$actu->newsletter}}
+                @endif</textarea>
         </div>
+        @if(isset($actu))
+            <input type="hidden" name="id" value="{{$actu->id}}">
+        @endif
         <div class="d-flex flex-column justify-content-around w-100">
             <div class="d-flex justify-content-center">
                 <div class="d-flex justify-content-around w-50 mt-5">
-                    <div v-on:click="display1" class="border choice text-center p-2 rounded-lg">Choisissez une photographie
+                    <div v-on:click="display1" class="border choice text-center p-2 rounded-lg">Choisissez une
+                        photographie
                     </div>
-                    <div v-on:click="display2" class="border choice text-center p-2 rounded-lg">Importez une photographie
+                    <div v-on:click="display2" class="border choice text-center p-2 rounded-lg">Importez une
+                        photographie
                     </div>
                 </div>
             </div>
@@ -34,11 +48,12 @@
                             <div class="col-3">
                                 @if($i > 0)
                                     @php
+                                        $newdiv = $count / 4;
                                         $k = ($i + 1)/4;
                                         $m = $k * $count;
                                         $p = floor($m);
                                     @endphp
-                                    @for($j = ($div * $i); $j < $p; $j++)
+                                    @for($j = floor($newdiv * $i); $j < $p; $j++)
                                         <figure class="mb-3 homediv">
                                             <a href="#Modal{{$j}}" data-toggle="modal">
                                                 <img src="/photo/{{$photos[$j]->id}}"
@@ -65,7 +80,7 @@
                                                              class="modalphoto">
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <input type="hidden" v-bind:name="'photo' + photoId">
+                                                        <input type="hidden" v-bind:name="'photo' + photoId" v-bind:value="photoId">
                                                         <button type="submit"
                                                                 @click="setPhoto($event, {{$photos[$j]->id}})"
                                                                 class="btn btn-success d-flex justify-content-center align-items-center actupicture">
@@ -105,9 +120,9 @@
                                                              class="modalphoto">
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <input type="hidden" name="photo{{$photos[$j]->id}}"
-                                                               value="{{$photos[$j]->id}}">
+                                                        <input type="hidden" v-bind:name="'photo' + photoId" v-bind:value="photoId">
                                                         <button type="submit"
+                                                                @click="setPhoto($event, {{$photos[$j]->id}})"
                                                                 class="btn btn-success d-flex justify-content-center align-items-center actupicture">
                                                             <i class="fas fa-check mr-2"></i> Confirmer
                                                         </button>
@@ -145,8 +160,8 @@
                                                  class="modalphoto">
                                         </div>
                                         <div class="modal-footer">
-                                            <input type="hidden" name="photo{{$photos[$j]->id}}"
-                                                   value="{{$photos[$j]->id}}">
+                                            <input type="hidden" name="photo{{$photo->id}}"
+                                                   value="{{$photo->id}}">
                                             <button type="submit"
                                                     class="btn btn-success d-flex justify-content-center align-items-center actupicture">
                                                 <i class="fas fa-check mr-2"></i> Confirmer
@@ -162,26 +177,9 @@
             </div>
             <div id="option2" style="display: none" class="border rounded-lg mt-5 p-5 pt-0 box-shadow-sm">
                 <div class="container-fluid d-flex flex-column align-items-center mb-5">
-                    <h1 class="w-50 mt-5 mb-5 formtitle garamond border-bottom text-center">Création de photos</h1>
                     <div class="container mt-5 d-flex flex-column">
-                        <div class="mb-5 d-flex flex-column align-items-center">
-                            <label for="name" id="label" class="mb-3 label text-center garamond">Titre de la
-                                photographie : </label>
-                            <input type="text" name="name" id="name"
-                                   class="mb-5 border-top-0 border-right-0 border-left-0 w-75 text-center">
-                        </div>
-                        <div class="mb-5 d-flex flex-column">
-                            <label for="description" class="mb-3 label text-center garamond">Description de la
-                                photographie :</label>
-                            <textarea name="description" id="description" cols="80" rows="20"
-                                      placeholder="Entrez votre texte ici"></textarea>
-                        </div>
                         <div class="mb-5">
-                            <label for="price" class="mb-3 label text-center garamond">Prix de la photographie
-                                : </label>
-                            <input type="number" name="price" value="0">
-                        </div>
-                        <div class="mb-5">
+                            {{Form::label('data', 'Veuillez sélectionner une photo à importer')}}
                             {{Form::file('data')}}
                         </div>
                         <button type="submit" class="btn btn-primary w-25">Envoyer</button>

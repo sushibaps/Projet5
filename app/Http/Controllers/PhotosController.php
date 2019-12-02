@@ -21,6 +21,12 @@ class PhotosController extends Controller
         ]);
     }
 
+    public function display($id){
+        $photo = Photo::findOrFail($id);
+        return view('frontend.photoDisplay')
+            ->withPhoto($photo);
+    }
+
     public function getFile($id){
             $photo = Photo::findOrFail($id);
             return response()->file(storage_path() . '/app/' . $photo->path);

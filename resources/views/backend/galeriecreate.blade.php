@@ -6,7 +6,12 @@
 
 @section('content')
     <div>
-        <form action="/galerie" method="post" class="container">
+        <form @if(isset($oldcategory))
+              action="/galerie/modify"
+              @else
+              action="/galerie"
+              @endif
+              method="post" class="container">
             {{csrf_field()}}
 
             <h1 class="text-center align-self-center display-3 mt-5 mb-5 categorytitle">Catégories</h1>
@@ -16,13 +21,25 @@
                 </div>
             </div>
 
+            @if(isset($oldcategory))
+                <input type="hidden" name="id" value="{{$oldcategory->id}}">
+            @endif
+
             <div class="mt-5 mb-5">
                 <label for="name">Nom de la catégorie</label>
-                <input type="text" id="name" name="name">
+                <input type="text" id="name" name="name"
+                       @if(isset($oldcategory))
+                       value="{{$oldcategory->name}}"
+                    @endif
+                >
             </div>
             <div class="mb-5">
                 <textarea name="description" id="description" cols="100" rows="15"
-                          placeholder="Description de la catégorie"></textarea>
+                          placeholder="Description de la catégorie">
+                    @if(isset($oldcategory))
+                        {!! $oldcategory->description !!}
+                    @endif
+                </textarea>
             </div>
 
             @if($div > 0)
@@ -31,13 +48,21 @@
                         <div class="col-3">
                             @if($i > 0)
                                 @php
-                                    $k = ($i + 1)/4;
-                                    $m = $k * $count;
-                                    $p = floor($m);
+                                      $newdiv = $count / 4;
+                                        $k = ($i + 1)/4;
+                                        $m = $k * $count;
+                                        $p = floor($m);
                                 @endphp
-                                @for($j = ($div * $i); $j < $p; $j++)
+                                @for($j = floor($newdiv * $i); $j < $p; $j++)
                                     <figure class="mb-3 homediv checkfigure p-0">
-                                        <input type="checkbox" name="photo{{$photos[$j]->id}}" class="checkbox m-0">
+                                        <input type="checkbox" name="photo{{$photos[$j]->id}}" class="checkbox m-0"
+                                               @if(isset($oldphotos))
+                                               @foreach($oldphotos as $oldphoto)
+                                               @if($oldphoto->id == $photos[$j]->id)
+                                               checked
+                                            @endif
+                                            @endforeach
+                                            @endif>
                                         <img src="/photo/small/{{$photos[$j]->id}}"
                                              alt="{!! $photos[$j]->description !!}}">
                                     </figure>
@@ -45,7 +70,14 @@
                             @else
                                 @for($j = 0; $j < (intdiv($count, 4)); $j++)
                                     <figure class="mb-3 homediv checkfigure">
-                                        <input type="checkbox" name="photo{{$photos[$j]->id}}" class="checkbox">
+                                        <input type="checkbox" name="photo{{$photos[$j]->id}}" class="checkbox"
+                                               @if(isset($oldphotos))
+                                               @foreach($oldphotos as $oldphoto)
+                                               @if($oldphoto->id == $photos[$j]->id)
+                                               checked
+                                            @endif
+                                            @endforeach
+                                            @endif>
                                         <img src="/photo/small/{{$photos[$j]->id}}"
                                              alt="{!! $photos[$j]->description !!}}">
                                     </figure>
@@ -58,7 +90,14 @@
                 <div class="container-fluid mt-5 d-flex flex-column justify-content-around">
                     @foreach($photos as $photo)
                         <figure class="caca homediv checkfigure">
-                            <input type="checkbox" name="photo{{$photo->id}}" class="checkbox">
+                            <input type="checkbox" name="photo{{$photo->id}}" class="checkbox"
+                                   @if(isset($oldphotos))
+                                   @foreach($oldphotos as $oldphoto)
+                                   @if($oldphoto->id == $photos[$j]->id)
+                                   checked
+                                @endif
+                                @endforeach
+                                @endif>
                             <img src="/photo/small/{{$photo->id}}" alt="{!! $photo->description !!}}">
                         </figure>
                     @endforeach
@@ -67,14 +106,4 @@
             <button type="submit" class="btn btn-primary mb-5 ml-auto">Créer</button>
         </form>
     </div>
-@endsection
-
-@section('script')
-    <script>
-        var vue = new Vue({
-            el: "#vue",
-            data:
-        })
-
-    </script>
 @endsection

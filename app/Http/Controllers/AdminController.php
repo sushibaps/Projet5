@@ -27,9 +27,21 @@ class AdminController extends Controller
         ]);
     }
 
+    public function actusDelete($id){
+        Actualite::where('id', '=', $id)->delete();
+        return redirect('/actus');
+    }
+
     public function actusStore(Request $request)
     {
-        $actu = new Actualite();
+        if($request->has('id')){
+            $count = Actualite::where('id', '=', $request->input('id'))->count();
+            if($count > 0){
+                $actu = Actualite::where('id', '=', $request->input('id'))->first();
+            }
+        } else {
+            $actu = new Actualite();
+        }
         $actu->title = $request->input('title');
         $actu->newsletter = $request->input('newsletter');
         $images = Photo::all();
@@ -39,23 +51,35 @@ class AdminController extends Controller
             }
         }
         if (isset($actu->photo_id)) {
-
+            $actu->path = null;
+            $actu->photo_name = null;
+            $actu->save();
         } else {
-            $photo = new Photo();
             $path = $request->file('data')->store('storage/uploads');
-            $name = $request->input('name');
-            $photo->name = $request->input('name');
-            $photo->path = $path;
-            $photo->description = $request->input('description');
-            $photo->price = $request->input('price');
-            $photo->save();
-            $this->resize($path, $name, 'small');
-            $this->resize($path, $name, 'medium');
-            $this->resize($path, $name, 'large');
-            $actu->photo_id = $photo->id;
+            $actu->path = $path;
+            $actu->photo_name = $actu->title;
+            $this->resize($path, $actu->photo_name, 'small');
+            $this->resize($path, $actu->photo_name, 'medium');
+            $this->resize($path, $actu->photo_name, 'large');
+            $actu->save();
         }
-        $actu->save();
+
         return redirect('/actus');
+    }
+
+    public function ActusUpdate($id)
+    {
+        $actu = Actualite::where('id', '=', $id)->first();
+        $photos = Photo::orderBy('id', "desc")->get();
+        $count = $photos->count();
+        $div = intdiv($count, 4);
+        return view('backend.actusCreate')
+            ->with([
+                'photos' => $photos,
+                'count' => $count,
+                'div' => $div,
+                'actu' => $actu
+            ]);
     }
 
     public function recurse($category)
@@ -88,7 +112,6 @@ class AdminController extends Controller
             ->withPhotos($photos)
             ->withCount($count)
             ->withDiv($div);
-
     }
 
     public function delete($id)
@@ -132,6 +155,40 @@ class AdminController extends Controller
         return redirect('/galerie');
     }
 
+    public function categoryModify($id)
+    {
+        $categories = Category::where('level', 0)->orderBy('name')->get();
+        $tree = $this->tree($categories);
+        $photos = Photo::orderBy('id', "desc")->get();
+        $count = $photos->count();
+        $div = intdiv($count, 4);
+        $oldcategory = Category::where('id', '=', $id)->firstOrFail();
+        $oldphotos = $oldcategory->photos()->get();
+        return view('backend.galeriecreate')
+            ->withTree($tree)
+            ->withPhotos($photos)
+            ->withCount($count)
+            ->withDiv($div)
+            ->withOldcategory($oldcategory)
+            ->withOldphotos($oldphotos);
+    }
+
+    public function categoryUpdate(Request $request)
+    {
+        $category = Category::where('id', '=', $request->input('id'))->first();
+        $category->name = $request->input('name');
+        $category->description = $request->input('description');
+        $category->save();
+        $category->photos()->detach();
+        $photos = Photo::all();
+        foreach ($photos as $photo) {
+            if ($request->has('photo' . $photo->id)) {
+                $category->photos()->attach($photo->id);
+            }
+        }
+        return redirect('/galerie');
+    }
+
     public function photoCreate()
     {
         $categories = Category::where('level', 0)->orderBy('name')->get();
@@ -140,22 +197,32 @@ class AdminController extends Controller
             ->withTree($tree);
     }
 
+    public function photosDelete($id){
+        Photo::where('id', '=', $id)->delete();
+        return redirect('/photos');
+    }
+
     public function photoStore(Request $request)
     {
-        $path = $request->file('data')->store('storage/uploads');
         $name = $request->input('name');
         $description = $request->input('description');
-        $location = $request->input('location');
         $price = $request->input('price');
-        $photo = new Photo();
-        $photo->name = $name;
-        $photo->path = $path;
-        $photo->description = $description;
-        $photo->price = $price;
-        $photo->save();
+        if($request->has('id')){
+            $photo = Photo::findOrFail($request->input('id'));
+            $path = $photo->path;
+        } else {
+            $photo = new Photo();
+            $path = $request->file('data')->store('storage/uploads');
+            $photo->path = $path;
+        }
         $this->resize($path, $name, 'small');
         $this->resize($path, $name, 'medium');
         $this->resize($path, $name, 'large');
+        $photo->name = $name;
+        $photo->description = $description;
+        $photo->price = $price;
+        $photo->save();
+        $photo->categories()->detach();
         $categories = Category::all();
         foreach ($categories as $category) {
             if ($request->has('category' . $category->id)) {
@@ -164,6 +231,15 @@ class AdminController extends Controller
         }
 
         return redirect('/photos');
+    }
+
+    public function photosUpdate($id){
+        $photo = Photo::findOrFail($id);
+        $categories = Category::where('level', 0)->orderBy('name')->get();
+        $tree = $this->tree($categories);
+        return view('backend.photoCreate')
+            ->withPhoto($photo)
+            ->withTree($tree);
     }
 
     public function resize($path, $name, $format)

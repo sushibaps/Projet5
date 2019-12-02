@@ -42,6 +42,7 @@
                                                  class="modalphoto">
                                         </div>
                                         <div class="modal-footer">
+                                            <a href="/photos/{{$photos[$j]->id}}">Consulter</a>
                                             <a href="/basket/home/{{$photos[$j]->id}}"
                                                class="btn btn-primary d-flex justify-content-center align-items-center cart">
                                                 <ion-icon name="cart"></ion-icon>
@@ -77,6 +78,7 @@
                                                  class="modalphoto">
                                         </div>
                                         <div class="modal-footer">
+                                            <a href="/photos/{{$photos[$j]->id}}">Consulter</a>
                                             <a href="/basket/home/{{$photos[$j]->id}}"
                                                class="btn btn-primary d-flex justify-content-center align-items-center cart">
                                                 <ion-icon name="cart"></ion-icon>
@@ -116,6 +118,7 @@
                                 <img src="/photo/{{$photo->id}}" alt="{{$photo->description}}" class="modalphoto">
                             </div>
                             <div class="modal-footer">
+                                <a href="/photos/{{$photo->id}}">Consulter</a>
                                 <a href="/basket/home/{{$photo->id}}"
                                    class="btn btn-primary d-flex justify-content-center align-items-center cart">
                                     <ion-icon name="cart"></ion-icon>

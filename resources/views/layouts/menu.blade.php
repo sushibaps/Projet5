@@ -36,8 +36,8 @@
     <title>@yield('title')</title>
 </head>
 <body>
-<div class="container-fluid d-flex justify-content-center scroll">
-    <nav class="container-fluid d-flex align-items-center border-bottom">
+<div class="container-fluid d-flex justify-content-center scroll transparent">
+    <nav class="container-fluid d-flex align-items-center border-bottom transparent" id="nav">
         <ul class="list-unstyled d-flex justify-content-between align-items-center w-50 mb-0 h-100">
             <li class="menu h-100 w-25 d-flex justify-content-center align-items-center"><a href="/"
                                                                                             class="text-dark text-decoration-none">Accueil</a>
@@ -53,7 +53,7 @@
             </li>
         </ul>
         @guest
-            <a class="ml-auto text-dark text-decoration-none d-flex justify-content-center align-items-center bouton"
+            <a class="ml-auto text-dark text-decoration-none d-flex justify-content-center align-items-center bouton" id="logbutton"
                href="/login">
                 <ion-icon name="finger-print"></ion-icon>
                 Log In</a>
@@ -61,11 +61,11 @@
         @auth
             <div class="offset-3 d-flex flex-row justify-content-around align-items-center" id="container">
                 <a href="/basket/menu"
-                   class="text-primary text-decoration-none d-flex justify-content-center align-items-center bouton border border-primary rounded p-2">
+                   class="text-primary text-decoration-none d-flex justify-content-center align-items-center bouton border border-primary rounded p-2" id="cartbutton">
                     <ion-icon name="cart" class="mr-1"></ion-icon>
                     Panier
                 </a>
-                <a class="text-danger text-decoration-none d-flex justify-content-center align-items-center boutondeco border border-danger rounded p-2"
+                <a class="text-danger text-decoration-none d-flex justify-content-center align-items-center boutondeco border border-danger rounded p-2" id="decobutton"
                    href="/logout">
                     <i class="fas fa-sign-out-alt mr-1"></i>
                     Déconnexion
@@ -75,16 +75,16 @@
     </nav>
 </div>
 
-<header class="min-vw-100 d-flex flex-column justify-content-center">
+<header class="min-vw-100 d-flex flex-column justify-content-center fixed-top header">
     @yield('prologue')
 </header>
 
-<section class="min-vh-100 mb-5" id="vue">
+<section class="min-vh-100" id="vue">
     @yield('content')
 </section>
 
 
-<footer class="min-vw-100 d-flex flex-column align-items-center justify-content-around mt-5 pt-4">
+<footer class="min-vw-100 d-flex flex-column align-items-center justify-content-around pt-5 bg-white">
     <div class="container d-flex justify-content-around border-top border-bottom pt-4">
         <div>
             <h2 class="socialtitles mb-3">Retrouvez-moi sur Instagram</h2>
@@ -103,6 +103,12 @@
     </div>
     <p class="text-secondary mt-4">Copyright 2019 © Julien Thuret. Tous droits réservés</p>
 </footer>
+<script>
+    window.addEventListener('load', (event) => {
+        document.getElementById('nav').classList.remove('transparent');
+        document.getElementsByTagName('div')[0].classList.remove('transparent');
+    });
+</script>
 @yield('script')
 </body>
 </html>

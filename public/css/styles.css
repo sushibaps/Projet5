@@ -5,6 +5,7 @@
 
 body {
     font-family: 'Source Sans Pro', 'sans-serif' !important;
+    margin-bottom : 0 !important;
 }
 
 .social li a {
@@ -46,7 +47,7 @@ nav {
 
 #figure {
     width : 100vw;
-    height : 90vh;
+    height : 100vh;
     margin : 0 !important;
     position : relative;
     background: url('../images/mountain.jpg') no-repeat center;
@@ -135,6 +136,14 @@ textarea {
 
 .menu:hover {
     border-bottom : 2px solid black;
+}
+
+.menuwhite {
+    border-bottom : 2px solid transparent;
+}
+
+.menuwhite:hover {
+    border-bottom : 2px solid white;
 }
 
 .categories {
@@ -258,4 +267,18 @@ small a{
 
 .actupicture {
     font-size : 1.1em;
+}
+
+.transparent {
+    background-color : transparent !important;
+    border-bottom : none !important;
+}
+
+.header {
+    z-index : -1;
+}
+
+.marge {
+    background-color : white;
+    margin-top : 100vh;
 }

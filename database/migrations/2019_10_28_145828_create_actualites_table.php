@@ -18,6 +18,8 @@ class CreateActualitesTable extends Migration
             $table->text('title')->nullable();
             $table->bigInteger('photo_id')->unsigned()->nullable();
             $table->foreign('photo_id')->references('id')->on('photos');
+            $table->text('photo_name')->nullable();
+            $table->text('path')->nullable();
             $table->mediumText('newsletter');
             $table->timestamps();
         });
