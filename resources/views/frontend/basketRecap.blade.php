@@ -38,7 +38,7 @@
                             <p>Prix total : {{ panier.total }}</p>
                         </div>
                         <a v-bind:href="'/basket/update/' + panier.photo_id + '/' + panier.quantity">Modifier</a>
-                        <a v-bind:href="'/basket/delete/item/' + panier.id" class="text-danger"><i
+                        <a v-bind:href="pouet(panier.id)" class="text-danger"><i
                                 class="fas fa-trash-alt"></i></a>
                     </div>
                     <input type="hidden" name="number" v-bind:value="index">
@@ -81,6 +81,14 @@
                         panier.total = panier.price * panier.quantity;
                     }
                     this.paniers = [...this.paniers];
+                },
+                pouet(panierId){
+                    var req = new XMLHttpRequest();
+                    req.open("GET", "/basket/delete/item/" + panierId);
+                    req.addEventListener("load", function () {
+                        console.log(req.responseText);
+                    });
+                    req.send(null);
                 }
             });
         </script>

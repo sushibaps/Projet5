@@ -57,9 +57,7 @@ class BasketsController extends Controller
     public function menu()
     {
         if (Auth::guest()) {
-            return redirect('/login')->with([
-                'message' => "Vous devez vous authentifier pour effectuer cette action"
-            ]);
+            return redirect('/login');
         } else {
             try {
                 $baskets = Basket::where('user_id', '=', Auth::id())->get();

@@ -282,3 +282,7 @@ small a{
     background-color : white;
     margin-top : 100vh;
 }
+
+.branche {
+    border-left : gray solid 1px;
+}

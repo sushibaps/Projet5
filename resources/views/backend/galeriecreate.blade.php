@@ -1,7 +1,7 @@
 @extends ('layouts.menu')
 
 @section('title')
-    Galerie
+    Création de catégorie
 @endsection
 
 @section('content')
@@ -11,14 +11,12 @@
               @else
               action="/galerie"
               @endif
-              method="post" class="container">
+              method="post" class="container mt-5">
             {{csrf_field()}}
 
-            <h1 class="text-center align-self-center display-3 mt-5 mb-5 categorytitle">Catégories</h1>
-            <div class="d-flex flex-column mt-5 mb-5 align-items-center container">
-                <div class="d-flex justify-content-around mt-5 pb-5 border-bottom">
-                    @include('frontend.listCat', ['categories' => $tree])
-                </div>
+            <h1 class="text-center align-self-center display-3 mt-5 mb-5 categorytitle">Création de catégorie</h1>
+            <div class="d-flex flex-column mt-5 mb-5 pb-5 border rounded-lg p-3">
+                @include('frontend.listCat', ['categories' => $tree])
             </div>
 
             @if(isset($oldcategory))
@@ -26,11 +24,12 @@
             @endif
 
             <div class="mt-5 mb-5">
-                <label for="name">Nom de la catégorie</label>
+                <label for="name" class="mr-5">Nom de la catégorie : </label>
                 <input type="text" id="name" name="name"
                        @if(isset($oldcategory))
                        value="{{$oldcategory->name}}"
                     @endif
+                    class="border-top-0 border-right-0 border-left-0"
                 >
             </div>
             <div class="mb-5">
@@ -48,10 +47,10 @@
                         <div class="col-3">
                             @if($i > 0)
                                 @php
-                                      $newdiv = $count / 4;
-                                        $k = ($i + 1)/4;
-                                        $m = $k * $count;
-                                        $p = floor($m);
+                                    $newdiv = $count / 4;
+                                      $k = ($i + 1)/4;
+                                      $m = $k * $count;
+                                      $p = floor($m);
                                 @endphp
                                 @for($j = floor($newdiv * $i); $j < $p; $j++)
                                     <figure class="mb-3 homediv checkfigure p-0">

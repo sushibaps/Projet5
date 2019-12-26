@@ -48,7 +48,10 @@
                 </div>
             @endif
             <div>
-                <div class="d-flex flex-column justify-content-around mt-5 pb-5 border-bottom bg-light">
+                <div class="d-flex flex-column justify-content-around mt-5 mb-5 pb-5 border rounded-lg">
+                    <div class="d-flex justify-content-center">
+                        <h2 class="text-center mt-5 mb-5 pb-5 border-bottom w-75">Veuillez sélectionner la catégorie à laquelle la photographie appartiendra</h2>
+                    </div>
                     @include('frontend.listCat', ['categories' => $tree])
                 </div>
             </div>

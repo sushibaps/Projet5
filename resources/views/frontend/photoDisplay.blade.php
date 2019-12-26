@@ -5,21 +5,21 @@
 @endsection
 
 @section('content')
-    <div class="container-fluid d-flex flex-column">
-        <div>
-            <h2>{{$photo->name}}</h2>
+    <div class="container-fluid d-flex flex-column mt-5">
+        <div class="container d-flex flex-column align-items-center mt-5">
+            <h2 class="mb-5 border-bottom border-dark pb-2">{{$photo->name}}</h2>
             <figure>
                 <img src="/photo/medium/{{$photo->id}}" alt="{!! $photo->description !!}">
             </figure>
-            <div>
+            <div class="container-fluid d-flex flex-column align-items-center">
                 <p>{!! $photo->description !!}</p>
-                <p>{{$photo->price}}</p>
+                <p class="align-self-end">Prix : {{$photo->price}} euros</p>
             </div>
         </div>
-        <div>
+        <div class="container d-flex flex-column mt-5">
             <a href="/basket/home/{{$photo->id}}"
-               class="btn btn-primary d-flex justify-content-center align-items-center cart">
-                <ion-icon name="cart"></ion-icon>
+               class="btn btn-primary d-flex justify-content-center align-items-center cart align-self-end button">
+                Achat <ion-icon name="cart"></ion-icon>
             </a>
             @auth
                 @if(Auth::user()->isAdmin)

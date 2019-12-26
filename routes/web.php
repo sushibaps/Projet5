@@ -49,9 +49,9 @@ Route::get('/photo/medium/{id}', 'PhotosController@getMedium');
 Route::get('/photo/large/{id}', 'PhotosController@getLarge');
 
 // Baskets handling
-Route::get('/basket/home/{photoId}', 'BasketsController@home')->middleware('checkAdmin');
-Route::post('/basket/list/{photoId}', 'BasketsController@list')->middleware('checkAdmin');
-Route::get('/basket/update/{photoId}/{quantity}', 'BasketsController@update')->middleware('checkAdmin');
+Route::get('/basket/home/{photoId}', 'BasketsController@home');
+Route::post('/basket/list/{photoId}', 'BasketsController@list');
+Route::get('/basket/update/{photoId}/{quantity}', 'BasketsController@update');
 Route::get('/basket/menu', 'BasketsController@menu');
 Route::get('/basket/delete', 'BasketsController@delete');
 Route::get('/basket/delete/item/{panierId}', 'BasketsController@deleteItem');
@@ -75,3 +75,13 @@ Route::post('/actus/create', 'AdminController@actusStore')->middleware('checkAdm
 Route::get('/actus/update/{id}', 'AdminController@actusUpdate')->where('id', '[0-9]+')->middleware('checkAdmin');
 Route::post('/actus/update', 'AdminController@actusStore')->middleware('checkAdmin');
 Route::get('/actus/delete/{id}', 'AdminController@actusDelete')->where('id', '[0-9]+')->middleware('checkAdmin');
+
+// Route de test de l'envoi d'e-mail
+Route::post('/contact', 'ContactController@store');
+Route::get('/test-contact', function () {
+    return new App\Mail\ContactRequest([
+        'name' => 'Durand',
+        'email' => 'durand@chezlui.com',
+        'message' => 'Je voulais vous dire que votre site est magnifique !'
+    ]);
+});

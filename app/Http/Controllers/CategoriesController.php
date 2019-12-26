@@ -16,6 +16,15 @@ class CategoriesController extends Controller
         }
     }
 
+    public function recurseUp($category)
+    {
+        $parents = Category::where('id', '=', $category->category_id)->get();
+        foreach($parents as $upcat) {
+            $category->parent = $upcat;
+            $this->recurseUp($upcat);
+        }
+    }
+
     public function tree($categories)
     {
         $tree = [];
@@ -25,6 +34,12 @@ class CategoriesController extends Controller
             array_push($tree, $cat);
         }
         return $tree;
+    }
+
+    public function treeup($category)
+    {
+        $this->recurseUp($category);
+        return $category;
     }
 
 
@@ -45,7 +60,10 @@ class CategoriesController extends Controller
     public function getList($displayId)
     {
         $categories = Category::where('level', 0)->orderBy('name')->get();
-        $tree = $this->tree($categories);
+        $category = Category::where('id', '=', $displayId)->first();
+        $category2 = Category::where('id', '=', $displayId)->get();
+        $tree = $this->tree($category2);
+        $treeUp = $this->treeup($category);
         if (Auth::guest() || !Auth::user()->isAdmin) {
             $admin = 0;
         } else {
@@ -57,13 +75,16 @@ class CategoriesController extends Controller
             $photos = Category::find($displayId)->photos()->get();
             return $view
                 ->withPhotos($photos)
-                ->withDisplayId($displayId)
                 ->withTree($tree)
+                ->withTreeUp($treeUp)
+                ->withDisplayId($displayId)
                 ->withAdmin($admin);
         } else {
             return $view
                 ->withMessage('Cette catégorie ne contient pas de photographies pour le moment')
                 ->withTree($tree)
+                ->withTreeUp($treeUp)
+                ->withDisplayId($displayId)
                 ->withAdmin($admin);
         }
     }
