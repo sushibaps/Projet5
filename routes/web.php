@@ -28,6 +28,7 @@ Route::get('/account', 'PagesController@register');
 Route::get('/logout', 'PagesController@logout');
 Route::get('/test', 'PagesController@test');
 Route::get('/actus', 'PagesController@actus');
+Route::get('/services', 'PagesController@services');
 
 // Actualities handling
 Route::get('/actus/{id}', 'ActualitiesController@list')->where('id', '[0-9]+');
@@ -85,3 +86,6 @@ Route::get('/test-contact', function () {
         'message' => 'Je voulais vous dire que votre site est magnifique !'
     ]);
 });
+
+// Route de test du nouveau menu aligné à gauche, à la verticale
+Route::get('/test-menu', 'PagesController@testMenu');

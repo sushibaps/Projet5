@@ -39,17 +39,20 @@
 <div class="container-fluid d-flex justify-content-center scroll transparent">
     <nav class="container-fluid d-flex align-items-center border-bottom transparent" id="nav">
         <ul class="list-unstyled d-flex justify-content-between align-items-center w-50 mb-0 h-100">
-            <li class="menu h-100 w-25 d-flex justify-content-center align-items-center"><a href="/"
+            <li class="menu h-100 d-flex justify-content-center align-items-center"><a href="/"
                                                                                             class="text-dark text-decoration-none">Accueil</a>
             </li>
-            <li class="menu h-100 w-25 d-flex justify-content-center align-items-center"><a href="/galerie"
+            <li class="menu h-100 d-flex justify-content-center align-items-center"><a href="/galerie"
                                                                                             class="text-dark text-decoration-none">Catégories</a>
             </li>
-            <li class="menu h-100 w-25 d-flex justify-content-center align-items-center"><a href="/photos"
+            <li class="menu h-100 d-flex justify-content-center align-items-center"><a href="/photos"
                                                                                             class="text-dark text-decoration-none">Photographies</a>
             </li>
-            <li class="menu h-100 w-25 d-flex justify-content-center align-items-center"><a href="/actus"
+            <li class="menu h-100 d-flex justify-content-center align-items-center"><a href="/actus"
                                                                                             class="text-dark text-decoration-none">Actualités</a>
+            </li>
+            <li class="menu h-100 d-flex justify-content-center align-items-center"><a href="/services"
+                                                                                            class="text-dark text-decoration-none">Services</a>
             </li>
         </ul>
         @guest
@@ -84,7 +87,7 @@
 </section>
 
 
-<footer class="min-vw-100 d-flex flex-column align-items-center justify-content-around pt-5 bg-white">
+<footer class="d-flex flex-column align-items-center justify-content-around pt-5 bg-white">
     <div class="container d-flex justify-content-around border-top border-bottom pt-4">
         <div>
             <h2 class="socialtitles mb-3">Retrouvez-moi sur Instagram</h2>

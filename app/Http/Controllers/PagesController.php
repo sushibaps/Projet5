@@ -22,25 +22,28 @@ class PagesController extends Controller
     public function home()
     {
         try {
-            $nb = Photo::all()->max('id');
-            $count = Actualite::all()->count();
-            if($nb !== null || $count !== 0){
-                $actu = Actualite::findOrFail($count);
-                $photo = Photo::findOrFail($nb);
-                if($actu->created_at->format('U') > $photo->created_at->format('U')){
-                    return view('frontend.home')
-                        ->withActu($actu);
-                } else{
-                    return view('frontend.home')->with([
-                        'photo' => $photo
-                    ]);
-                }
+            $nbPhoto = Photo::all()->max('id');
+            if($nbPhoto > 3)
+                $photos = Photo::where('id', '>=', $nbPhoto-3)->get();
+            else
+                $photos = Photo::where('id', '>', 0)->get();
+
+            $nbActu = Actualite::all()->max('id');
+            if($nbActu > 3)
+                $actus = Actualite::where('id', '>=', $nbActu-3)->get();
+            else
+                $actus = Actualite::where('id', '>', 0)->get();
+
+            if($nbPhoto !== null || $nbActu !== null){
+                return view('frontend.home')
+                    ->withPhotos($photos)
+                    ->withActus($actus);
             } else {
                 return view('frontend.home');
             }
 
         } catch(ModelNotFoundException $exception) {
-            $photo = Photo::findOrFail($nb);
+            $photo = Photo::findOrFail($nbPhoto);
             return view('frontend.home')->with([
                 'photo' => $photo
             ]);
@@ -68,14 +71,47 @@ class PagesController extends Controller
         return view('auth.login');
     }
 
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/');
+    }
+
     public function register()
     {
         return view('auth.register');
     }
 
-    public function logout()
-    {
-        Auth::logout();
-        return redirect('/');
+    public function services(){
+        return view('frontend.services');
+    }
+
+    public function testMenu(){
+        try {
+            $nbPhoto = Photo::all()->max('id');
+            if($nbPhoto > 3)
+                $photos = Photo::where('id', '>=', $nbPhoto-3)->get();
+            else
+                $photos = Photo::where('id', '>', 0)->get();
+
+            $nbActu = Actualite::all()->max('id');
+            if($nbActu > 3)
+                $actus = Actualite::where('id', '>=', $nbActu-3)->get();
+            else
+                $actus = Actualite::where('id', '>', 0)->get();
+
+            if($nbPhoto !== null || $nbActu !== null){
+                return view('frontend.testHome')
+                    ->withPhotos($photos)
+                    ->withActus($actus);
+            } else {
+                return view('frontend.testHome');
+            }
+        } catch(ModelNotFoundException $exception) {
+            $photo = Photo::findOrFail($nbPhoto);
+            return view('frontend.testHome')->with([
+                'photo' => $photo
+            ]);
+        }
     }
 }

@@ -2,32 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48c842c9-fb6e-4e03-8ec7-c893abc80f00" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/frontend/breadcrumb.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/frontend/children.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/laravel5.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel5.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BasketsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BasketsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoriesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoriesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PagesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PagesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/galeriecreate.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/galeriecreate.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/photoCreate.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/photoCreate.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/basketRecap.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/basketRecap.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/cat.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/cat.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/confirmation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/confirmation.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/contact.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/galerie.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/galerie.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/listCat.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/listCat.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/photoDisplay.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/photoDisplay.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/emails/contactRequest.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/contactRequest.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/menu.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -361,6 +342,16 @@
       <workItem from="1577033796373" duration="225000" />
       <workItem from="1577374990358" duration="5222000" />
       <workItem from="1577394023804" duration="1137000" />
+      <workItem from="1577395192491" duration="86000" />
+      <workItem from="1577725965808" duration="1854000" />
+      <workItem from="1577785136151" duration="540000" />
+      <workItem from="1578410050668" duration="714000" />
+      <workItem from="1578489481540" duration="9835000" />
+      <workItem from="1578664102700" duration="3644000" />
+      <workItem from="1579184344166" duration="3683000" />
+      <workItem from="1580402052220" duration="54000" />
+      <workItem from="1580402162863" duration="1453000" />
+      <workItem from="1580453858975" duration="774000" />
     </task>
     <servers />
   </component>
@@ -381,10 +372,10 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="449" y="140" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1575221758095">
+    <state x="449" y="140" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1580402080675">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="449" y="140" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.824@0.0.1536.824" timestamp="1575221758095" />
+    <state x="449" y="140" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.824@0.0.1536.824" timestamp="1580402080675" />
     <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1575271248644">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -393,14 +384,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1576600527926" />
-    <state x="604" y="331" key="NewPhpFileDialog" timestamp="1577375759301">
+    <state x="604" y="331" key="NewPhpFileDialog" timestamp="1579184501570">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="604" y="331" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1577375759301" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1577394024008">
+    <state x="604" y="331" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1579184501570" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1580453859165">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1577394024008" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1580453859165" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1576510679649">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

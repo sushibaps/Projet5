@@ -34,7 +34,6 @@ class AdminController extends Controller
 
     public function actusStore(Request $request)
     {
-        dd($request);
         if($request->has('id')){
             $count = Actualite::where('id', '=', $request->input('id'))->count();
             if($count > 0){
