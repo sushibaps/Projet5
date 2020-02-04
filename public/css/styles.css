@@ -314,3 +314,7 @@ small a{
 .bg-camel{
     background-color: #C19A6B;
 }
+
+.shadow-nav{
+    box-shadow: 5px 2px 2px #f2f2f2;
+}

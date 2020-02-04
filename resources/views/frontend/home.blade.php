@@ -91,6 +91,7 @@
     <script>
         window.addEventListener('load', (event) => {
             document.getElementById('nav').classList.add('transparent');
+            document.getElementsByTagName('div')[0].classList.remove('shadow-nav');
             document.getElementsByTagName('div')[0].classList.add('transparent');
             let balises = document.getElementsByTagName('a');
             let balisesli = document.getElementsByTagName('li');
@@ -103,6 +104,7 @@
         });
 
         window.addEventListener('scroll', (event) => {
+            document.getElementsByTagName('div')[0].classList.add('shadow-nav');
             document.getElementById('nav').classList.remove('transparent');
             document.getElementsByTagName('div')[0].classList.remove('transparent');
             let balises = document.getElementsByTagName('a');
@@ -116,6 +118,7 @@
             if (window.scrollY === 0) {
                 document.getElementById('nav').classList.add('transparent');
                 document.getElementsByTagName('div')[0].classList.add('transparent');
+                document.getElementsByTagName('div')[0].classList.remove('shadow-nav');
                 let balises = document.getElementsByTagName('a');
                 for (let i = 0; i < balises.length; i++) {
                     balises[i].classList.add('text-white');
