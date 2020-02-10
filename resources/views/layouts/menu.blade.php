@@ -62,12 +62,7 @@
                 Log In</a>
         @endguest
         @auth
-            <div class="offset-3 d-flex flex-row justify-content-around align-items-center" id="container">
-                <a href="/basket/menu"
-                   class="text-primary text-decoration-none d-flex justify-content-center align-items-center bouton border border-primary rounded p-2" id="cartbutton">
-                    <ion-icon name="cart" class="mr-1"></ion-icon>
-                    Panier
-                </a>
+            <div class="offset-3 d-flex flex-row justify-content-end align-items-center" id="container">
                 <a class="text-danger text-decoration-none d-flex justify-content-center align-items-center boutondeco border border-danger rounded p-2" id="decobutton"
                    href="/logout">
                     <i class="fas fa-sign-out-alt mr-1"></i>

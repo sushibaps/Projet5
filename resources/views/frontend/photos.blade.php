@@ -43,10 +43,6 @@
                                         </div>
                                         <div class="modal-footer">
                                             <a href="/photos/{{$photos[$j]->id}}">Consulter</a>
-                                            <a href="/basket/home/{{$photos[$j]->id}}"
-                                               class="btn btn-primary d-flex justify-content-center align-items-center cart">
-                                                <ion-icon name="cart"></ion-icon>
-                                            </a>
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
                                             </button>
                                         </div>
@@ -79,10 +75,6 @@
                                         </div>
                                         <div class="modal-footer">
                                             <a href="/photos/{{$photos[$j]->id}}">Consulter</a>
-                                            <a href="/basket/home/{{$photos[$j]->id}}"
-                                               class="btn btn-primary d-flex justify-content-center align-items-center cart">
-                                                <ion-icon name="cart"></ion-icon>
-                                            </a>
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
                                             </button>
                                         </div>
@@ -119,10 +111,6 @@
                             </div>
                             <div class="modal-footer">
                                 <a href="/photos/{{$photo->id}}">Consulter</a>
-                                <a href="/basket/home/{{$photo->id}}"
-                                   class="btn btn-primary d-flex justify-content-center align-items-center cart">
-                                    <ion-icon name="cart"></ion-icon>
-                                </a>
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
                                 </button>
                             </div>

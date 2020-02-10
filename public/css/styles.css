@@ -43,6 +43,7 @@ nav {
     min-width: 6vw;
     min-height: 7vh;
     font-size: 1em !important;
+    color : red !important;
 }
 
 #figure {

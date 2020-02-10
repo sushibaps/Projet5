@@ -43,13 +43,12 @@
                 @for($i = 0; $i < 3; $i++)
                     @if(isset($actus[$i]))
                         @if(isset($actus[$i]->photo_id))
-                            <div class="mt-5 d-flex align-items-center justify-content-around flex-column ml-5 mr-5 border-bottom border-dark">
+                            <div
+                                class="mt-5 d-flex align-items-center justify-content-around flex-column ml-5 mr-5 border-bottom border-dark">
                                 <figure
                                     class="text-center d-flex flex-column align-items-center pt-5 mb-5 accueilfigure">
-                                    <a href="/basket/home/{{$actus[$i]->photo_id}}" class="maxfig">
-                                        <img src="/photo/medium/{{$actus[$i]->photo_id}}"
-                                             alt="{!! $actus[$i]->newsletter !!}">
-                                    </a>
+                                    <img src="/photo/medium/{{$actus[$i]->photo_id}}"
+                                         alt="{!! $actus[$i]->newsletter !!}">
                                     <figcaption
                                         class="text-center mt-4 border-bottom w-25 mb-4 garamond figcaption">{{$actus[$i]->title}}
                                     </figcaption>
@@ -59,7 +58,8 @@
                                 </figure>
                             </div>
                         @else
-                            <div class="mt-5 d-flex align-items-center justify-content-around flex-column ml-5 mr-5 border-bottom border-dark">
+                            <div
+                                class="mt-5 d-flex align-items-center justify-content-around flex-column ml-5 mr-5 border-bottom border-dark">
                                 <figure
                                     class="text-center d-flex flex-column align-items-center pt-5 mb-5 accueilfigure">
                                     <a href="/actus" class="maxfig">

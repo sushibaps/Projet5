@@ -17,10 +17,6 @@
             </div>
         </div>
         <div class="container d-flex flex-column mt-5">
-            <a href="/basket/home/{{$photo->id}}"
-               class="btn btn-primary d-flex justify-content-center align-items-center cart align-self-end button">
-                Achat <ion-icon name="cart"></ion-icon>
-            </a>
             @auth
                 @if(Auth::user()->isAdmin)
                     <div class="d-flex flex-column justify-content-around align-self-end mt-5">
