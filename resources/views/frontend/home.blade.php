@@ -25,7 +25,7 @@
                             <figure
                                 class="text-center d-flex flex-column align-items-center mb-5 accueilfigure">
                                 <a href="/photos" class="maxfig">
-                                    <img src="/photo/large/{{$photos[$i]->id}}" alt="{!! $photos[$i]->description !!}">
+                                    <img src="/photo/medium/{{$photos[$i]->id}}" alt="{!! $photos[$i]->description !!}">
                                 </a>
                                 <figcaption
                                     class="text-center mt-4 border-bottom w-25 mb-4 garamond figcaption">{{$photos[$i]->name}}
@@ -80,9 +80,6 @@
             </div>
         @else
             <div><p>Aucune actualité récente</p></div>
-            <figure>
-                <img src="/photo/pouet" alt="caca">
-            </figure>
         @endif
     </div>
 @endsection

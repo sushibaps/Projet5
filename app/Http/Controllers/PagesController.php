@@ -11,7 +11,8 @@ use mysql_xdevapi\Exception;
 
 class PagesController extends Controller
 {
-    public function actus(){
+    public function actus()
+    {
         $actus = Actualite::all();
         return view('frontend.actus')->with([
             'actus' => $actus
@@ -22,18 +23,29 @@ class PagesController extends Controller
     {
         try {
             $nbPhoto = Photo::all()->max('id');
-            if($nbPhoto > 3)
-                $photos = Photo::where('id', '>=', $nbPhoto-3)->get();
+            if ($nbPhoto > 3)
+                $photos = Photo::where('id', '>=', $nbPhoto - 3)->get();
             else
                 $photos = Photo::where('id', '>', 0)->get();
 
             $nbActu = Actualite::all()->max('id');
-            if($nbActu > 3)
-                $actus = Actualite::where('id', '>=', $nbActu-3)->get();
+            if ($nbActu > 3)
+                $actus = Actualite::where('id', '>=', $nbActu - 3)->get();
             else
                 $actus = Actualite::where('id', '>', 0)->get();
 
-            if($nbPhoto !== null || $nbActu !== null){
+            if ($nbPhoto !== null || $nbActu !== null) {
+                for ($i = 0; $i < 3; $i++){
+                    $stringLength = strlen($photos[$i]->description);
+                    if($stringLength > 120){
+                        $photos[$i]->description = substr($photos[$i]->description, 0, 119);
+                    }
+
+                    $newsletterLength = strlen($actus[$i]->newsletter);
+                    if($newsletterLength > 120){
+                        $actus[$i]->newsletter = substr($actus[$i]->newsletter, 0, 119);
+                    }
+                }
                 return view('frontend.home')
                     ->withPhotos($photos)
                     ->withActus($actus);
@@ -41,7 +53,7 @@ class PagesController extends Controller
                 return view('frontend.home');
             }
 
-        } catch(ModelNotFoundException $exception) {
+        } catch (ModelNotFoundException $exception) {
             $photo = Photo::findOrFail($nbPhoto);
             return view('frontend.home')->with([
                 'photo' => $photo
@@ -81,32 +93,34 @@ class PagesController extends Controller
         return view('auth.register');
     }
 
-    public function services(){
+    public function services()
+    {
         return view('frontend.services');
     }
 
-    public function testMenu(){
+    public function testMenu()
+    {
         try {
             $nbPhoto = Photo::all()->max('id');
-            if($nbPhoto > 3)
-                $photos = Photo::where('id', '>=', $nbPhoto-3)->get();
+            if ($nbPhoto > 3)
+                $photos = Photo::where('id', '>=', $nbPhoto - 3)->get();
             else
                 $photos = Photo::where('id', '>', 0)->get();
 
             $nbActu = Actualite::all()->max('id');
-            if($nbActu > 3)
-                $actus = Actualite::where('id', '>=', $nbActu-3)->get();
+            if ($nbActu > 3)
+                $actus = Actualite::where('id', '>=', $nbActu - 3)->get();
             else
                 $actus = Actualite::where('id', '>', 0)->get();
 
-            if($nbPhoto !== null || $nbActu !== null){
+            if ($nbPhoto !== null || $nbActu !== null) {
                 return view('frontend.testHome')
                     ->withPhotos($photos)
                     ->withActus($actus);
             } else {
                 return view('frontend.testHome');
             }
-        } catch(ModelNotFoundException $exception) {
+        } catch (ModelNotFoundException $exception) {
             $photo = Photo::findOrFail($nbPhoto);
             return view('frontend.testHome')->with([
                 'photo' => $photo
