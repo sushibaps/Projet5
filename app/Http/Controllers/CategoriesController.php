@@ -53,7 +53,7 @@ class CategoriesController extends Controller
             $admin = 1;
         }
         return view('frontend.galerie')
-            ->withTree($tree)
+            ->withCategories($categories)
             ->withAdmin($admin);
     }
 

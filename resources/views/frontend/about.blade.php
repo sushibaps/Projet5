@@ -1,9 +1,14 @@
 @extends ('layouts.menu')
 
 @section ('title')
-    A propos
+    À propos
 @endsection
 
 @section ('content')
-    <h1 class="w-75 mt-5 text-center">Bienvenue sur la section About</h1>
+    <main>
+        <article>
+            <h2>Julien Thuret</h2>
+            <p></p>
+        </article>
+    </main>
 @endsection

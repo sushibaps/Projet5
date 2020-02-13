@@ -1,7 +1,7 @@
 @extends('layouts.menu')
 
 @section('title')
-    Photographies de Monsieur Dupond
+    Photographies
 @endsection
 
 @section('content')
@@ -38,7 +38,7 @@
                                             </button>
                                         </div>
                                         <div class="modal-body text-center">
-                                            <img src="/photo/{{$photos[$j]->id}}" alt="{{$photos[$j]->description}}"
+                                            <img src="/photo/medium/{{$photos[$j]->id}}" alt="{{$photos[$j]->description}}"
                                                  class="modalphoto">
                                         </div>
                                         <div class="modal-footer">
@@ -70,7 +70,7 @@
                                             </button>
                                         </div>
                                         <div class="modal-body text-center">
-                                            <img src="/photo/{{$photos[$j]->id}}" alt="{{$photos[$j]->description}}"
+                                            <img src="/photo/medium/{{$photos[$j]->id}}" alt="{{$photos[$j]->description}}"
                                                  class="modalphoto">
                                         </div>
                                         <div class="modal-footer">
@@ -107,7 +107,7 @@
                                 </button>
                             </div>
                             <div class="modal-body text-center">
-                                <img src="/photo/{{$photo->id}}" alt="{{$photo->description}}" class="modalphoto">
+                                <img src="/photo/medium/{{$photo->id}}" alt="{{$photo->description}}" class="modalphoto">
                             </div>
                             <div class="modal-footer">
                                 <a href="/photos/{{$photo->id}}">Consulter</a>

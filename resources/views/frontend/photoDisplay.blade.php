@@ -9,7 +9,7 @@
         <div class="container d-flex flex-column align-items-center mt-5">
             <h2 class="mb-5 border-bottom border-dark pb-2">{{$photo->name}}</h2>
             <figure>
-                <img src="/photo/medium/{{$photo->id}}" alt="{!! $photo->description !!}">
+                <img src="/photo/medium/{{$photo->id}}" alt="{!! $photo->description !!}" class="accueilfigure">
             </figure>
             <div class="container-fluid d-flex flex-column align-items-center">
                 <p>{!! $photo->description !!}</p>

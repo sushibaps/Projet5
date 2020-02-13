@@ -1,7 +1,7 @@
 @extends ('layouts.menu')
 
 @section('title')
-    Page d'accueil de mon site
+    Julien Thuret | Photographe Artistique
 @endsection
 
 @section('prologue')
@@ -23,16 +23,13 @@
                     @if(isset($photos[$i]))
                         <div class="d-flex align-items-center justify-content-around flex-column p-5">
                             <figure
-                                class="text-center d-flex flex-column align-items-center mb-5 accueilfigure">
+                                class="text-center d-flex flex-column align-items-center mb-5">
                                 <a href="/photos" class="maxfig">
-                                    <img src="/photo/medium/{{$photos[$i]->id}}" alt="{!! $photos[$i]->description !!}">
+                                    <img src="/photo/medium/{{$photos[$i]->id}}" alt="{!! $photos[$i]->description !!}" class="accueilfigure">
                                 </a>
                                 <figcaption
-                                    class="text-center mt-4 border-bottom w-25 mb-4 garamond figcaption">{{$photos[$i]->name}}
+                                    class="text-center mt-4 border-bottom mb-4 garamond figcaption">{{$photos[$i]->name}}
                                 </figcaption>
-                                <p>{!!$photos[$i]->description!!}</p>
-                                <p class="align-self-end font-italic">Publiée le
-                                    : {{$photos[$i]->created_at->format('Y-m-d')}}</p>
                             </figure>
                         </div>
                     @endif
@@ -53,8 +50,6 @@
                                         class="text-center mt-4 border-bottom w-25 mb-4 garamond figcaption">{{$actus[$i]->title}}
                                     </figcaption>
                                     <p>{!!$actus[$i]->newsletter!!}</p>
-                                    <p class="align-self-end font-italic">Publiée le
-                                        : {{$actus[$i]->created_at->format('d-m-Y')}}</p>
                                 </figure>
                             </div>
                         @else

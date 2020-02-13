@@ -10,7 +10,7 @@
             <h2 class="mb-3">{{$actu->title}}</h2>
             @if(isset($actu->photo_name))
                 <figure>
-                    <img src="/actusPhoto/medium/{{$actu->id}}" alt="{!! $actu->title !!}">
+                    <img src="/actusPhoto/small/{{$actu->id}}" alt="{!! $actu->title !!}">
                 </figure>
             @else
                 <figure>

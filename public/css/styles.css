@@ -5,7 +5,7 @@
 
 body {
     font-family: 'Source Sans Pro', 'sans-serif' !important;
-    margin-bottom : 0 !important;
+    margin-bottom: 0 !important;
 }
 
 .social li a {
@@ -43,45 +43,45 @@ nav {
     min-width: 6vw;
     min-height: 7vh;
     font-size: 1em !important;
-    color : red !important;
+    color: red !important;
 }
 
 #figure {
-    width : 100vw;
-    height : 100vh;
-    margin : 0 !important;
-    position : relative;
+    width: 100vw;
+    height: 100vh;
+    margin: 0 !important;
+    position: relative;
     background: url('../images/mountain.jpg') no-repeat center;
-    background-size : cover;
+    background-size: cover;
 }
 
 #figcaption {
-    position : absolute;
-    bottom : 35%;
-    width : 30vw;
-    height : 30vh;
-    color : white;
-    font-family : 'EB Garamond', 'serif';
-    text-align : center !important;
+    position: absolute;
+    bottom: 35%;
+    width: 30vw;
+    height: 30vh;
+    color: white;
+    font-family: 'EB Garamond', 'serif';
+    text-align: center !important;
 }
 
 #figcaption p {
-    font-size : 1.5em !important;
+    font-size: 1.5em !important;
 }
 
 .figcaption {
-    font-size : 1.8em !important;
+    font-size: 1.8em !important;
 }
 
 img {
-    max-width : 100%;
-    max-height : 100%;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 #landscape {
-    width : 100vw;
+    width: 100vw;
     height: auto;
-    position : relative;
+    position: relative;
 }
 
 #landscape img {
@@ -91,18 +91,18 @@ img {
 #lock {
     width: 30vw;
     height: 80vh;
-    position : absolute;
+    position: absolute;
     top: 10%;
-    left : 35%;
+    left: 35%;
     background-color: rgba(245, 245, 247, 0.7) !important;
     box-shadow: 2px 2px 5px white;
-    color : #5B3E34;
-    font-size : 1.4em;
+    color: #5B3E34;
+    font-size: 1.4em;
 }
 
 #ion {
-    font-size : 10em;
-    color : #1c3154;
+    font-size: 10em;
+    color: #1c3154;
 }
 
 #loginform input {
@@ -112,73 +112,73 @@ img {
 }
 
 textarea {
-    resize : none;
+    resize: none;
 }
 
 .socialtitles {
-    font-size : 1.4em !important;
+    font-size: 1.4em !important;
 }
 
 .scroll {
-    position : sticky;
-    top : 0;
-    z-index : 2;
+    position: sticky;
+    top: 0;
+    z-index: 2;
     background-color: white;
-    border : none !important;
+    border: none !important;
 }
 
-.homediv:hover{
-    box-shadow : 3px 3px 10px gray;
+.homediv:hover {
+    box-shadow: 3px 3px 10px gray;
 }
 
 .menu {
-    border-bottom : 2px solid transparent;
+    border-bottom: 2px solid transparent;
 }
 
 .menu:hover {
-    border-bottom : 2px solid black;
+    border-bottom: 2px solid black;
 }
 
 .menuwhite {
-    border-bottom : 2px solid transparent;
+    border-bottom: 2px solid transparent;
 }
 
 .menuwhite:hover {
-    border-bottom : 2px solid white;
+    border-bottom: 2px solid white;
 }
 
 .categories {
-    border : 1px solid #dee2e6;
-    border-radius : 10px !important;
-    min-width : 4vw;
+    border: 1px solid #dee2e6;
+    border-radius: 10px !important;
+    min-width: 4vw;
 }
 
 .categories:hover {
-    background-color : #dee2e6;
+    background-color: #dee2e6;
 }
 
 .categories h2 {
-    font-size : 1em !important;
+    font-size: 1em !important;
 }
 
 .cart {
-    font-size : 1.5em !important;
+    font-size: 1.5em !important;
 }
 
-.modalphoto{
-    max-height : calc(100vh - 200px);
+.modalphoto {
+    max-height: calc(100vh - 200px);
 }
 
-.caca{
-    max-width : 20%;
+.caca {
+    max-width: 20%;
 }
 
 .formtitle {
-    font-size : 3em !important;
+    font-size: 3em !important;
 }
 
 .garamond {
-    font-family : 'EB Garamond', 'serif';
+    font-family: 'EB Garamond', 'serif';
 }
 
 .manjari {
@@ -186,25 +186,25 @@ textarea {
 }
 
 .label {
-    font-size : 1.3em !important;
+    font-size: 1.3em !important;
 }
 
 .deepblue {
-    background-color : #1c3154;
-    color : white;
+    background-color: #1c3154;
+    color: white;
 }
 
-small a{
-    color : #1c3154;
+small a {
+    color: #1c3154;
 }
 
 .miniature {
-    max-width : 60%;
+    max-width: 60%;
 }
 
 #container {
-    min-width : 20%;
-    height : 100%;
+    min-width: 20%;
+    height: 100%;
 }
 
 .box-shadow {
@@ -212,110 +212,107 @@ small a{
 }
 
 .box-shadow-sm {
-    box-shadow : 3px 3px 10px #e6e9ec;
+    box-shadow: 3px 3px 10px #e6e9ec;
 }
 
 .delete {
-    background-color : transparent;
-    border : none;
+    background-color: transparent;
+    border: none;
 }
 
 .accueilfigure {
-    max-width : 80%;
+    max-width: 80vw !important;
+    max-height: 80vh !important;
 }
 
 .choice {
-    font-size : 1.1em;
+    font-size: 1.1em;
 }
 
 .choice:hover {
-    background-color : #e6e9ec;
+    background-color: #e6e9ec;
     border-color: #e6e9ec !important;
-    box-shadow : 2px 2px 5px gray;
-    cursor : pointer;
+    box-shadow: 2px 2px 5px gray;
+    cursor: pointer;
 }
 
 .focus {
-    background-color : #e6e9ec;
+    background-color: #e6e9ec;
     border-color: #e6e9ec !important;
-    box-shadow : 2px 2px 5px gray;
-    cursor : pointer;
-}
-
-.maxfig {
-    max-height : 100%;
+    box-shadow: 2px 2px 5px gray;
+    cursor: pointer;
 }
 
 .font-20 {
-    font-size : 20px;
+    font-size: 20px;
 }
 
 .checkbox {
-    position : absolute;
-    top : 0;
-    right : 0;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .checkfigure {
-    position : relative;
+    position: relative;
 }
 
 .absolute {
-    position : absolute;
-    bottom : 10%;
-    right : 10%;
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
 }
 
 .actupicture {
-    font-size : 1.1em;
+    font-size: 1.1em;
 }
 
 .transparent {
-    background-color : transparent !important;
-    border-bottom : none !important;
+    background-color: transparent !important;
+    border-bottom: none !important;
 }
 
 .header {
-    z-index : -1;
+    z-index: -1;
 }
 
 .marge {
-    background-color : white;
-    margin-top : 100vh;
+    background-color: white;
+    margin-top: 100vh;
 }
 
 .branche {
-    border-left : gray solid 1px;
+    border-left: gray solid 1px;
 }
 
-.height-80{
-    min-height : 80vh;
+.height-80 {
+    min-height: 80vh;
 }
 
-.height-50{
-    min-height : 50vh;
+.height-50 {
+    min-height: 50vh;
 }
 
-.width-15{
-    width : 15%;
+.width-15 {
+    width: 15%;
 }
 
-.width-60{
-    width : 60%;
+.width-60 {
+    width: 60%;
 }
 
-.width-20{
-    width : 20%;
+.width-20 {
+    width: 20%;
 }
 
-.width-30{
+.width-30 {
     width: 30%;
 }
 
-.bg-camel{
+.bg-camel {
     background-color: #C19A6B;
 }
 
-.shadow-nav{
+.shadow-nav {
     box-shadow: 5px 2px 2px #b3b3b3;
 }
