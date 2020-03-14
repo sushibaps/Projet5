@@ -1,5 +1,9 @@
 @extends ('layouts.menu')
 
+@section('stylesheet')
+    <link rel="stylesheet" href="{{asset('css/responsive/home.css')}}">
+@endsection
+
 @section('title')
     Julien Thuret | Photographe Artistique
 @endsection
@@ -8,7 +12,7 @@
     <figure class="d-flex justify-content-center" id="figure">
         <figcaption class="border p-3 d-flex flex-column justify-content-center align-items-center garamond"
                     id="figcaption">
-            <h2 class="display-4">Julien Thuret</h2>
+            <h1 class="display-4">Julien Thuret</h1>
             <p class="text-center">Photographe artistique</p>
         </figcaption>
     </figure>
@@ -16,7 +20,7 @@
 
 @section('content')
     <div class="marge d-flex flex-row container-fluid">
-        @if(isset($photos) || isset($actus))
+        @if(isset($photos) && isset($actus))
             <div class="d-flex flex-column w-75 pt-5 align-items-center">
                 <h2 class="mt-5 border-bottom pb-3 w-50 text-center">Dernières photographies publiées</h2>
                 @for($i = 0; $i < 3; $i++)
@@ -25,7 +29,8 @@
                             <figure
                                 class="text-center d-flex flex-column align-items-center mb-5">
                                 <a href="/photos" class="maxfig">
-                                    <img src="/photo/medium/{{$photos[$i]->id}}" alt="{!! $photos[$i]->description !!}" class="accueilfigure">
+                                    <img src="/photo/medium/{{$photos[$i]->id}}" alt="{!! $photos[$i]->description !!}"
+                                         class="accueilfigure">
                                 </a>
                                 <figcaption
                                     class="text-center mt-4 border-bottom mb-4 garamond figcaption">{{$photos[$i]->name}}
@@ -73,8 +78,28 @@
                     @endif
                 @endfor
             </div>
+        @elseif(isset($photos))
+            <div class="container d-flex flex-column pt-5 align-items-center">
+                <h2 class="mt-5 border-bottom pb-3 w-50 text-center">Dernières photographies publiées</h2>
+                @for($i = 0; $i < 3; $i++)
+                    @if(isset($photos[$i]))
+                        <div class="d-flex align-items-center justify-content-around flex-column p-5">
+                            <figure
+                                class="text-center d-flex flex-column align-items-center mb-5">
+                                <a href="/photos" class="maxfig">
+                                    <img src="/photo/medium/{{$photos[$i]->id}}" alt="{!! $photos[$i]->description !!}"
+                                         class="accueilfigure">
+                                </a>
+                                <figcaption
+                                    class="text-center mt-4 border-bottom mb-4 garamond figcaption">{{$photos[$i]->name}}
+                                </figcaption>
+                            </figure>
+                        </div>
+                    @endif
+                @endfor
+            </div>
         @else
-            <div><p>Aucune actualité récente</p></div>
+            <div><p>Désolé, il n'y a aucune photographie ou actualité récente, le photographe a dû s'endormir sur son clavier :)</p></div>
         @endif
     </div>
 @endsection
@@ -99,6 +124,8 @@
             document.getElementsByTagName('div')[0].classList.add('shadow-nav');
             document.getElementById('nav').classList.remove('transparent');
             document.getElementsByTagName('div')[0].classList.remove('transparent');
+            document.getElementsByClassName('fa-bars')[0].classList.add('text-dark');
+            document.getElementsByClassName('fa-bars')[0].classList.remove('text-white');
             let balises = document.getElementsByTagName('a');
             let balisesli = document.getElementsByTagName('li');
             for (let i = 0; i < balises.length; i++) {
@@ -111,6 +138,8 @@
                 document.getElementById('nav').classList.add('transparent');
                 document.getElementsByTagName('div')[0].classList.add('transparent');
                 document.getElementsByTagName('div')[0].classList.remove('shadow-nav');
+                document.getElementsByClassName('fa-bars')[0].classList.add('text-white');
+                document.getElementsByClassName('fa-bars')[0].classList.remove('text-dark');
                 let balises = document.getElementsByTagName('a');
                 for (let i = 0; i < balises.length; i++) {
                     balises[i].classList.add('text-white');
@@ -119,8 +148,10 @@
                     balisesli[i].classList.remove('menu');
                 }
             }
-            document.getElementById('cartbutton').classList.remove('text-dark');
-            document.getElementById('decobutton').classList.remove('text-dark');
+            var decobutton = document.getElementById('decobutton')
+            if (decobutton !== null) {
+                decobutton.classList.remove('text-dark');
+            }
         });
     </script>
 @endsection

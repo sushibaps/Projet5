@@ -8,7 +8,7 @@
     <div class="container d-flex justify-content-around align-items-center flex-wrap mt-5">
         @foreach($actus as $actu)
             <a href="/actus/{{$actu->id}}" class="text-decoration-none text-dark">
-                <div class="d-flex flex-column ml-5">
+                <div class="d-flex flex-column ml-5 align-items-center">
                     <h2 class="text-center">{{$actu->title}}</h2>
                     @if(isset($actu->photo_name))
                         <figure>

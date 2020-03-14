@@ -18,6 +18,7 @@
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
     <!-- Global CSS file loading -->
+    @yield('stylesheet')
     <link rel="stylesheet" href="{{asset('css/styles.css')}}">
     <!-- Google Font loading -->
     <link href="https://fonts.googleapis.com/css?family=Manjari|Source+Sans+Pro|EB+Garamond&display=swap"
@@ -37,39 +38,48 @@
 </head>
 <body>
 <div class="container-fluid d-flex justify-content-center scroll transparent">
-    <nav class="container-fluid d-flex align-items-center border-bottom transparent" id="nav">
-        <ul class="list-unstyled d-flex justify-content-between align-items-center width-60 mb-0 h-100">
-            <li class="menu h-100 d-flex justify-content-center align-items-center width-20"><a href="/"
-                                                                                            class="text-dark text-decoration-none">Accueil</a>
-            </li>
-            <li class="menu h-100 d-flex justify-content-center align-items-center width-20"><a href="/galerie"
-                                                                                            class="text-dark text-decoration-none">Catégories</a>
-            </li>
-            <li class="menu h-100 d-flex justify-content-center align-items-center width-20"><a href="/photos"
-                                                                                            class="text-dark text-decoration-none">Photographies</a>
-            </li>
-            <li class="menu h-100 d-flex justify-content-center align-items-center width-20"><a href="/actus"
-                                                                                            class="text-dark text-decoration-none">Actualités</a>
-            </li>
-            <li class="menu h-100 d-flex justify-content-center align-items-center width-20"><a href="/services"
-                                                                                            class="text-dark text-decoration-none">Services</a>
-            </li>
-        </ul>
-        @guest
-            <a class="ml-auto text-dark text-decoration-none d-flex justify-content-center align-items-center bouton" id="logbutton"
-               href="/login">
-                <ion-icon name="finger-print"></ion-icon>
-                Log In</a>
-        @endguest
-        @auth
-            <div class="offset-3 d-flex flex-row justify-content-end align-items-center" id="container">
-                <a class="text-danger text-decoration-none d-flex justify-content-center align-items-center boutondeco border border-danger rounded p-2" id="decobutton"
+    <nav
+        class="container-fluid d-flex align-items-center border-bottom transparent navbar navbar-expand-lg pb-0"
+        id="nav">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+                aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars text-white"></i>
+        </button>
+        <div class="collapse navbar-collapse h-100" id="navbarTogglerDemo01">
+            <ul class="list-unstyled d-flex justify-content-between align-items-center width-80 mb-0 h-100"
+                id="menulist">
+                <li class="menu h-100 d-flex justify-content-center align-items-center width-20"><a href="/"
+                                                                                                    class="text-dark text-decoration-none">Accueil</a>
+                </li>
+                <li class="menu h-100 d-flex justify-content-center align-items-center width-20"><a href="/galerie"
+                                                                                                    class="text-dark text-decoration-none">Catégories</a>
+                </li>
+                <li class="menu h-100 d-flex justify-content-center align-items-center width-20"><a href="/photos"
+                                                                                                    class="text-dark text-decoration-none">Photographies</a>
+                </li>
+                <li class="menu h-100 d-flex justify-content-center align-items-center width-20"><a href="/actus"
+                                                                                                    class="text-dark text-decoration-none">Actualités</a>
+                </li>
+                <li class="menu h-100 d-flex justify-content-center align-items-center width-20"><a href="/services"
+                                                                                                    class="text-dark text-decoration-none">Services</a>
+                </li>
+            </ul>
+            @guest
+                <a class="ml-auto text-dark text-decoration-none d-flex justify-content-center align-items-center bouton"
+                   id="logbutton"
+                   href="/login">
+                    <ion-icon name="finger-print"></ion-icon>
+                    Log In</a>
+            @endguest
+            @auth
+                <a class="ml-auto text-danger text-decoration-none d-flex justify-content-center align-items-center boutondeco border border-danger rounded p-2"
+                   id="decobutton"
                    href="/logout">
                     <i class="fas fa-sign-out-alt mr-1"></i>
                     Déconnexion
                 </a>
-            </div>
-        @endauth
+            @endauth
+        </div>
     </nav>
 </div>
 
@@ -84,8 +94,8 @@
 
 <footer class="d-flex flex-column align-items-center justify-content-around pt-5 bg-white">
     <div class="container d-flex justify-content-around border-top border-bottom pt-4">
-        <div>
-            <h2 class="socialtitles mb-3">Retrouvez-moi sur Instagram</h2>
+        <div class="d-flex flex-column">
+            <h2 class="socialtitles mb-3" id="instatitle">Retrouvez-moi sur Instagram</h2>
             <ul class="list-unstyled d-flex justify-content-around align-items-center social">
                 <li><a href="https://www.instagram.com/julienthuret/"
                        class="text-secondary border border-secondary rounded-circle d-flex justify-content-center align-items-center mt-3 mb-3"
@@ -102,10 +112,8 @@
     <p class="text-secondary mt-4">Copyright 2019 © Julien Thuret. Tous droits réservés</p>
 </footer>
 <script>
-    window.addEventListener('load', (event) => {
-        document.getElementById('nav').classList.remove('transparent');
-        document.getElementsByTagName('div')[0].classList.remove('transparent');
-    });
+    document.getElementById('nav').classList.remove('transparent');
+    document.getElementsByTagName('div')[0].classList.remove('transparent');
 </script>
 @yield('script')
 </body>

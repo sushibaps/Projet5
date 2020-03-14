@@ -9,8 +9,8 @@ body {
 }
 
 .social li a {
-    width: 2vw;
-    height: 4vh;
+    width: 2em;
+    height: 2em;
     text-decoration: none;
     border-width: 1px !important;
     font-size: 1.1em;
@@ -36,7 +36,6 @@ nav {
 .bouton {
     min-width: 6vw;
     min-height: 7vh;
-    font-size: 1em !important;
 }
 
 .boutondeco {
@@ -309,10 +308,129 @@ small a {
     width: 30%;
 }
 
+.width-80 {
+    width: 80%;
+}
+
 .bg-camel {
     background-color: #C19A6B;
 }
 
 .shadow-nav {
     box-shadow: 5px 2px 2px #b3b3b3;
+}
+
+/* Media queries pour le menu */
+@media all and (max-width: 576px) {
+    #navbarTogglerDemo01 {
+        height: auto !important;
+    }
+
+    #menulist {
+        width: 100% !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        height: auto !important;
+        justify-content: space-evenly !important;
+    }
+
+    #menulist li {
+        width: auto !important;
+        height: auto !important;
+    }
+
+    footer div {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        margin-bottom: 3em;
+    }
+
+    .fa-instagram {
+        font-size: 1.5em !important;
+    }
+
+    .social li a{
+        border: none !important;
+    }
+}
+
+@media all and (min-width: 576px) and (max-width: 768px){
+
+    #navbarTogglerDemo01 {
+        height: auto !important;
+    }
+
+    #menulist {
+        width: 100% !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        height: auto !important;
+        justify-content: space-evenly !important;
+    }
+
+    #menulist li {
+        width: auto !important;
+        height: auto !important;
+    }
+
+    #logbutton{
+        margin-left: none !important;
+    }
+
+    .fa-instagram {
+        font-size: 1.5em !important;
+    }
+
+    .social li a{
+        border: none !important;
+    }
+
+    #instatitle{
+        width: 75%;
+        margin-left: 12.5%;
+        text-align: center;
+        margin-bottom: 0 !important;
+    }
+}
+
+@media all and (min-width: 768px) and (max-width: 992px){
+    #navbarTogglerDemo01 {
+        height: auto !important;
+    }
+
+    #menulist {
+        width: 100% !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        height: auto !important;
+        justify-content: space-evenly !important;
+    }
+
+    #menulist li {
+        width: auto !important;
+        height: auto !important;
+    }
+
+    #logbutton{
+        margin-left: none !important;
+    }
+
+    .fa-instagram {
+        font-size: 1.5em !important;
+    }
+
+    .social li a{
+        border: none !important;
+    }
+}
+
+@media all and (min-width: 992px) and (max-width: 1200px){
+    .fa-instagram {
+        font-size: 1.5em !important;
+    }
+
+    .social li a{
+        border: none !important;
+    }
 }

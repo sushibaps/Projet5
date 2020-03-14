@@ -1,0 +1,49 @@
+/* For very small devices */
+@media all and (max-width: 576px) {
+    #figcaption{
+        width: auto !important;
+        height: auto !important;
+        border : none !important;
+    }
+
+    .marge{
+        display : flex;
+        flex-direction : column !important;
+    }
+
+    .marge div{
+        border : none !important;
+        width : 80% !important;
+    }
+
+    .marge div h2{
+        width : 100% !important;
+    }
+}
+
+/* For mobile phones mainly*/
+@media all and (min-width: 576px) and (max-width: 768px){
+    #figure > figcaption{
+        width: auto !important;
+        height: auto !important;
+        padding: 3em !important;
+    }
+}
+
+/* For tablets mainly */
+@media all and (min-width: 768px) and (max-width: 992px){
+    #figure > figcaption{
+        width: auto !important;
+        height: auto !important;
+        padding: 3em !important;
+    }
+}
+
+/* For large tablets and laptops */
+@media all and (min-width: 992px) and (max-width: 1200px){
+    #figure > figcaption{
+        width: auto !important;
+        height: auto !important;
+        padding: 3em !important;
+    }
+}
