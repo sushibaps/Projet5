@@ -70,11 +70,14 @@ class CategoriesController extends Controller
             $admin = 1;
         }
         $count = Category::find($displayId)->photos()->count();
+        $div = intdiv($count, 4);
         $view = view('frontend.galerie');
         if ($count > 0) {
             $photos = Category::find($displayId)->photos()->get();
             return $view
                 ->withPhotos($photos)
+                ->withCount($count)
+                ->withDiv($div)
                 ->withTree($tree)
                 ->withTreeUp($treeUp)
                 ->withDisplayId($displayId)

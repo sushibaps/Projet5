@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Actualite;
+use App\Category;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -30,7 +31,7 @@ class PagesController extends Controller
             $nbPhoto = Photo::all()->max('id');
             if ($nbPhoto !== null) {
                 if ($nbPhoto > 3) {
-                    $photos = Photo::where('id', '>=', $nbPhoto - 3)->get();
+                    $photos = Photo::where('id', '>=', $nbPhoto - 3)->orderBy('id', 'desc')->get();
                     for ($i = 0; $i < 3; $i++) {
                         $stringLength = strlen($photos[$i]->description);
                         if ($stringLength > 120) {
@@ -38,7 +39,7 @@ class PagesController extends Controller
                         }
                     }
                 } else {
-                    $photos = Photo::where('id', '>=', 0)->get();
+                    $photos = Photo::where('id', '>=', 0)->orderBy('id', 'desc')->get();
                     for ($i = 0; $i <= $nbPhoto; $i++) {
                         $stringLength = strlen($photos[$i]->description);
                         if ($stringLength > 120) {
@@ -51,7 +52,7 @@ class PagesController extends Controller
             $nbActu = Actualite::all()->max('id');
             if ($nbActu !== null) {
                 if ($nbActu > 3) {
-                    $actus = Actualite::where('id', '>=', $nbActu - 3)->get();
+                    $actus = Actualite::where('id', '>=', $nbActu - 3)->orderBy('id', 'desc')->get();
                     for ($i = 0; $i < 3; $i++) {
                         $stringLength = strlen($actus[$i]->description);
                         if ($stringLength > 120) {
@@ -59,7 +60,7 @@ class PagesController extends Controller
                         }
                     }
                 } else {
-                    $actus = Actualite::where('id', '>=', 0)->get();
+                    $actus = Actualite::where('id', '>=', 0)->orderBy('id', 'desc')->get();
                     for ($i = 0; $i <= $nbActu; $i++) {
                         $stringLength = strlen($actus[$i]->description);
                         if ($stringLength > 120) {
@@ -102,7 +103,6 @@ class PagesController extends Controller
 
     public function galerie()
     {
-
         return view('frontend.galerie');
     }
 
