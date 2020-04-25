@@ -60,7 +60,7 @@
                 <li class="menu h-100 d-flex justify-content-center align-items-center width-20"><a href="/actus"
                                                                                                     class="text-dark text-decoration-none">Actualités</a>
                 </li>
-                <li class="menu h-100 d-flex justify-content-center align-items-center width-20"><a href="/services"
+                <li class="menu h-100 d-flex justify-content-center align-items-center width-20"><a href="/prestations"
                                                                                                     class="text-dark text-decoration-none">Services</a>
                 </li>
             </ul>

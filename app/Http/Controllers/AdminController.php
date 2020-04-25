@@ -7,6 +7,7 @@ use App\Photo;
 use App\Actualite;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -198,7 +199,12 @@ class AdminController extends Controller
     }
 
     public function photosDelete($id){
-        Photo::where('id', '=', $id)->delete();
+        $photo = Photo::where('id', '=', $id)->firstOrFail();
+        Storage::delete($photo->path);
+        Storage::delete('storage/small/' . $photo->name . '.jpeg');
+        Storage::delete('storage/medium/' . $photo->name . '.jpeg');
+        Storage::delete('storage/large/' . $photo->name . '.jpeg');
+        $photo->delete();
         return redirect('/photos');
     }
 
@@ -240,6 +246,10 @@ class AdminController extends Controller
         return view('backend.photoCreate')
             ->withPhoto($photo)
             ->withTree($tree);
+    }
+
+    public function prestaCreate(){
+        return view('backend.prestaCreate');
     }
 
     public function resize($path, $name, $format)

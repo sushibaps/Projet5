@@ -22,13 +22,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'PagesController@home')->middleware('rememberUrl');
 Route::get('/contact', 'PagesController@contact');
 Route::post('/contact', 'PagesController@postcontact');
-Route::get('/about', 'PagesController@about');
 Route::get('/login', 'PagesController@login');
 Route::get('/account', 'PagesController@register');
 Route::get('/logout', 'PagesController@logout');
-Route::get('/test', 'PagesController@test');
 Route::get('/actus', 'PagesController@actus');
-Route::get('/services', 'PagesController@services');
+Route::get('/prestations', 'PagesController@prestations');
 
 // Actualities handling
 Route::get('/actus/{id}', 'ActualitiesController@list')->where('id', '[0-9]+');
@@ -68,15 +66,5 @@ Route::get('/actus/update/{id}', 'AdminController@actusUpdate')->where('id', '[0
 Route::post('/actus/update', 'AdminController@actusStore')->middleware('checkAdmin');
 Route::get('/actus/delete/{id}', 'AdminController@actusDelete')->where('id', '[0-9]+')->middleware('checkAdmin');
 
-// Route de test de l'envoi d'e-mail
-Route::post('/contact', 'ContactController@store');
-Route::get('/test-contact', function () {
-    return new App\Mail\ContactRequest([
-        'name' => 'Durand',
-        'email' => 'durand@chezlui.com',
-        'message' => 'Je voulais vous dire que votre site est magnifique !'
-    ]);
-});
-
-// Route de test du nouveau menu aligné à gauche, à la verticale
-Route::get('/test-menu', 'PagesController@testMenu');
+Route::get('/prestations/create', 'AdminController@prestaCreate')->middleware('checkAdmin');
+Route::post('/prestations/create', 'AdminController@prestaStore')->middleware('checkAdmin');

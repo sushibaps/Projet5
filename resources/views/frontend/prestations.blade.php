@@ -5,6 +5,11 @@
 @endsection
 
 @section('content')
+    @auth
+        @if(Auth::user()->isAdmin)
+            <a href="/prestations/create">Création de prestations</a>
+        @endif
+    @endauth
     <div class="container-fluid d-flex justify-content-center">
         <h1 class="mt-5 w-50 text-center"><u>Prestations et tarifs</u></h1>
     </div>
