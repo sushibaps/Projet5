@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePrestationsTable extends Migration
+class CreateIllustrationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreatePrestationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('prestations', function (Blueprint $table) {
+        Schema::create('illustrations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('title');
-            $table->integer('main_id');
-            $table->mediumText('content');
-            $table->bigInteger('price')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +26,6 @@ class CreatePrestationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prestations');
+        Schema::dropIfExists('illustrations');
     }
 }

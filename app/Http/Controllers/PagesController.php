@@ -79,7 +79,7 @@ class PagesController extends Controller
             } elseif ($nbActu !== null) {
                 return view('frontend.home')
                     ->withActus($actus);
-            }
+            } else return view('frontend.home');
 
         } catch (ModelNotFoundException $exception) {
             $photo = Photo::findOrFail($nbPhoto);

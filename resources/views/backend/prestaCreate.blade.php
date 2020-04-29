@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="container-fluid d-flex flex-column align-items-center mt-5 mb-5">
-        <h1 class="w-25 mt-5 mb-5 formtitle garamond border-bottom">Création de prestations</h1>
+        <h1 class="w-25 mt-5 mb-5 formtitle garamond border-bottom text-center">Création de prestations</h1>
         <div class="container mt-5">
             @if(isset($prestation))
                 {{Form::open(array('url' => '/prestations/update', 'class' => 'd-flex flex-column'))}}
@@ -20,12 +20,12 @@
                        class="mb-5 border-top-0 border-right-0 border-left-0 w-75 text-center"
                        @if(isset($prestation))
                        value="{{$prestation->title}}"
-                    @endif>
+                       @endif required>
             </div>
             <div class="mb-5 d-flex flex-column align-items-center">
                 <label for="description" class="mb-3 label text-center garamond">Contenu de la prestation : </label>
                 <textarea name="content" id="content" cols="80" rows="20"
-                          placeholder="Entrez votre texte ici">
+                          placeholder="Entrez votre texte ici" required>
                     @if(isset($prestation))
                         {!! $prestation->content !!}
                     @endif
@@ -43,8 +43,8 @@
             @if(isset($prestation))
                 <input type="hidden" name="id" value="{{$prestation->id}}">
             @endif
-            <div class="mb-5">
-                {{Form::file('data')}}
+            <div v-for="(item, index) of items " class="mb-5">
+                <input v-on:change="select" type="file" v-bind:name="'data' + index" accept=".jpg" required>
             </div>
 
             <button type="submit" class="btn btn-primary w-25">Envoyer</button>
@@ -52,3 +52,20 @@
         </div>
     </div>
 @endsection
+
+@section('script')
+    <script>
+        var script = new Vue({
+            el: '#vue',
+            data: {
+                items: ['1'],
+            },
+            methods: {
+                select: function (event) {
+                    this.items.push('1');
+                }
+            }
+            })
+    </script>
+@endsection
+

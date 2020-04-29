@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePhotoPrestationPivotTable extends Migration
+class CreateIllustrationPrestationPivotTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,12 @@ class CreatePhotoPrestationPivotTable extends Migration
      */
     public function up()
     {
-        Schema::create('photo_prestation', function (Blueprint $table) {
-            $table->bigInteger('photo_id')->unsigned()->index();
-            $table->foreign('photo_id')->references('id')->on('photos')->onDelete('cascade');
+        Schema::create('illustration_prestation', function (Blueprint $table) {
+            $table->bigInteger('illustration_id')->unsigned()->index();
+            $table->foreign('illustration_id')->references('id')->on('illustrations')->onDelete('cascade');
             $table->bigInteger('prestation_id')->unsigned()->index();
             $table->foreign('prestation_id')->references('id')->on('prestations')->onDelete('cascade');
-            $table->primary(['photo_id', 'prestation_id']);
+            $table->primary(['illustration_id', 'prestation_id']);
         });
     }
 
@@ -28,6 +28,6 @@ class CreatePhotoPrestationPivotTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('photo_prestation');
+        Schema::dropIfExists('illustration_prestation');
     }
 }

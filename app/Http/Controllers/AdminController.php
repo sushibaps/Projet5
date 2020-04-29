@@ -29,7 +29,11 @@ class AdminController extends Controller
     }
 
     public function actusDelete($id){
-        Actualite::where('id', '=', $id)->delete();
+        $actu = Actualite::where('id', '=', $id)->findOrFail();
+        if(isset($actu->path) && $actu->path !== 0){
+            Storage::delete($actu->path);
+        }
+        $actu->delete();
         return redirect('/actus');
     }
 
@@ -250,6 +254,10 @@ class AdminController extends Controller
 
     public function prestaCreate(){
         return view('backend.prestaCreate');
+    }
+
+    public function prestaStore(){
+
     }
 
     public function resize($path, $name, $format)
