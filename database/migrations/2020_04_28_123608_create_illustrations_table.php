@@ -15,6 +15,8 @@ class CreateIllustrationsTable extends Migration
     {
         Schema::create('illustrations', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->text('path');
+            $table->integer('count')->nullable()->default(0);
             $table->timestamps();
         });
     }

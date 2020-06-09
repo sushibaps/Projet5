@@ -28,7 +28,6 @@ Route::get('/login', 'PagesController@login');
 Route::get('/account', 'PagesController@register');
 Route::get('/logout', 'PagesController@logout');
 Route::get('/actus', 'PagesController@actus');
-Route::get('/prestations', 'PagesController@prestations');
 
 // Actualities handling
 Route::get('/actus/{id}', 'ActualitiesController@list')->where('id', '[0-9]+');
@@ -48,6 +47,11 @@ Route::get('/photo/{id}', 'PhotosController@getFile');
 Route::get('/photo/small/{id}', 'PhotosController@getMiniature');
 Route::get('/photo/medium/{id}', 'PhotosController@getMedium');
 Route::get('/photo/large/{id}', 'PhotosController@getLarge');
+
+// Prestations handling
+Route::get('/prestations', 'PrestationsController@prestations');
+Route::get('/prestation/display/{id}', 'PrestationsController@display')->where('id', '[0-9]+');
+Route::get('/illustration/{id}', 'PrestationsController@getIllustration')->where('id', '[0-9]+');
 
 // Administrator interaction
 Route::post('/galerie', 'AdminController@categoryStore')->middleware('checkAdmin');

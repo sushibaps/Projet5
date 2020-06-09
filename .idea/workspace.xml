@@ -2,18 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48c842c9-fb6e-4e03-8ec7-c893abc80f00" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/frontend/prestaDisplay.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PagesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PagesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Prestation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Prestation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/cache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_16_132143_create_prestations_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_16_132143_create_prestations_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_19_163500_create_photo_prestation_pivot_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_28_123608_create_illustrations_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_28_123608_create_illustrations_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend/prestaCreate.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/prestaCreate.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/prestations.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/prestations.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,18 +168,18 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\matth\Documents\Projet5\laravel5\resources\views\backend" />
+      <recent name="C:\Users\matth\Documents\Projet5\laravel5\resources\views\frontend" />
+      <recent name="C:\Users\matth\Documents\Projet5\laravel5\resources\views\layouts" />
+      <recent name="C:\Users\matth\Documents\Projet5\laravel5\resources\views" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\matth\Documents\Projet5\laravel5\storage\app\public" />
       <recent name="C:\Users\matth\Documents\Projet5\laravel5\public\storage\uploads" />
       <recent name="C:\Users\matth\Documents\Projet5\laravel5\public\images" />
       <recent name="C:\Users\matth\Documents\Projet5\laravel5\public" />
       <recent name="C:\Users\matth\Documents\Projet5\laravel5\public\css" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\matth\Documents\Projet5\laravel5\resources\views\backend" />
-      <recent name="C:\Users\matth\Documents\Projet5\laravel5\resources\views\frontend" />
-      <recent name="C:\Users\matth\Documents\Projet5\laravel5\resources\views\layouts" />
-      <recent name="C:\Users\matth\Documents\Projet5\laravel5\resources\views" />
     </key>
   </component>
   <component name="RunManager">
@@ -404,7 +403,26 @@
       <workItem from="1588070032797" duration="5792000" />
       <workItem from="1588087438354" duration="611000" />
       <workItem from="1588104241548" duration="1654000" />
-      <workItem from="1588147249348" duration="5606000" />
+      <workItem from="1588147249348" duration="5763000" />
+      <workItem from="1588159817109" duration="6920000" />
+      <workItem from="1588191600021" duration="2435000" />
+      <workItem from="1588203202575" duration="3003000" />
+      <workItem from="1588238754156" duration="2146000" />
+      <workItem from="1588322095966" duration="1996000" />
+      <workItem from="1588342959582" duration="7215000" />
+      <workItem from="1588407730295" duration="4991000" />
+      <workItem from="1588428339838" duration="404000" />
+      <workItem from="1588501940897" duration="4160000" />
+      <workItem from="1588514795674" duration="1336000" />
+      <workItem from="1588595567162" duration="959000" />
+      <workItem from="1588628092791" duration="15000" />
+      <workItem from="1588628409960" duration="2004000" />
+      <workItem from="1588672701237" duration="2416000" />
+      <workItem from="1588684848588" duration="3011000" />
+      <workItem from="1588866838131" duration="283000" />
+      <workItem from="1588867146225" duration="3183000" />
+      <workItem from="1589969311055" duration="255000" />
+      <workItem from="1591712373658" duration="1090000" />
     </task>
     <servers />
   </component>
@@ -428,6 +446,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="487" y="0" key="#PHP/0.0.1536.824@0.0.1536.824" timestamp="1587789686265" />
+    <state x="361" y="53" key="#Plugins" timestamp="1588867178108">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="53" key="#Plugins/0.0.1536.824@0.0.1536.824" timestamp="1588867178108" />
     <state x="516" y="202" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588040886010">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -436,18 +458,26 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="449" y="140" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.824@0.0.1536.824" timestamp="1587134475072" />
+    <state x="274" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1588502491594">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="274" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1588502491594" />
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1588502452962">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1588502452962" />
     <state x="430" y="41" width="690" height="742" key="#phpunit.xml" timestamp="1588041344922">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="430" y="41" width="690" height="742" key="#phpunit.xml/0.0.1536.824@0.0.1536.824" timestamp="1588041344922" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1588039675623">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1589969564379">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1588039675623" />
-    <state x="604" y="331" key="NewPhpFileDialog" timestamp="1587047586309">
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1589969564379" />
+    <state x="604" y="331" key="NewPhpFileDialog" timestamp="1588502660490">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="604" y="331" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1587047586309" />
+    <state x="604" y="331" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1588502660490" />
     <state x="367" y="85" width="981" height="707" key="SettingsEditor" timestamp="1588150432523">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -460,5 +490,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1583167781529" />
+    <state x="425" y="66" width="672" height="676" key="search.everywhere.popup" timestamp="1588347409087">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="66" width="672" height="676" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1588347409087" />
   </component>
 </project>

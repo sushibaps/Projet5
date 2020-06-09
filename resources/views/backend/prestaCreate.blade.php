@@ -14,9 +14,9 @@
                 {{Form::open(array('url' => '/prestations/create', 'files' => true, 'class' => 'd-flex flex-column'))}}
             @endif
             <div class="mb-5 d-flex flex-column align-items-center">
-                <label for="name" id="label" class="mb-3 label text-center garamond">Intitulé de la prestation
+                <label for="title" id="label" class="mb-3 label text-center garamond">Intitulé de la prestation
                     : </label>
-                <input type="text" name="name" id="name"
+                <input type="text" name="title" id="title"
                        class="mb-5 border-top-0 border-right-0 border-left-0 w-75 text-center"
                        @if(isset($prestation))
                        value="{{$prestation->title}}"
@@ -32,7 +32,7 @@
                 </textarea>
             </div>
             <div class="mb-5">
-                <label for="price" class="mb-3 label text-center garamond">Prix de la prestation : </label>
+                <label for="price" class="mb-3 label text-center garamond">Prix horaire de la prestation : </label>
                 <input type="number" name="price"
                        @if(isset($prestation))
                        value="{{$prestation->price}}"
@@ -43,8 +43,13 @@
             @if(isset($prestation))
                 <input type="hidden" name="id" value="{{$prestation->id}}">
             @endif
-            <div v-for="(item, index) of items " class="mb-5">
-                <input v-on:change="select" type="file" v-bind:name="'data' + index" accept=".jpg" required>
+
+            <div class="mb-5">
+                <input type="file" name="main" accept=".jpg" required>
+            </div>
+
+            <div class="mb-5">
+                <input type="file" name="illustrations[]" accept=".jpg" multiple>
             </div>
 
             <button type="submit" class="btn btn-primary w-25">Envoyer</button>
@@ -52,20 +57,3 @@
         </div>
     </div>
 @endsection
-
-@section('script')
-    <script>
-        var script = new Vue({
-            el: '#vue',
-            data: {
-                items: ['1'],
-            },
-            methods: {
-                select: function (event) {
-                    this.items.push('1');
-                }
-            }
-            })
-    </script>
-@endsection
-

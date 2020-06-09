@@ -284,6 +284,10 @@ small a {
     border-left: gray solid 1px;
 }
 
+.max-height-80{
+    max-height: 80% !important;
+}
+
 .height-80 {
     min-height: 80vh;
 }

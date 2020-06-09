@@ -6,6 +6,8 @@ use App\Actualite;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Auth;
 use App\Photo;
+use App\Prestation;
+use App\Illustration;
 
 class PagesController extends Controller
 {
@@ -113,10 +115,5 @@ class PagesController extends Controller
     public function register()
     {
         return view('auth.register');
-    }
-
-    public function prestations()
-    {
-        return view('frontend.prestations');
     }
 }

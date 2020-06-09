@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Illustration;
 use App\Photo;
 use App\Actualite;
+use App\Prestation;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
@@ -256,8 +258,34 @@ class AdminController extends Controller
         return view('backend.prestaCreate');
     }
 
-    public function prestaStore(){
-
+    public function prestaStore(Request $request){
+        $prestation = new Prestation();
+        $prestation->title = $request->input('title');
+        $prestation->content = $request->input('content');
+        $prestation->price = $request->input('price');
+        if ($request->has('main')){
+            $illustration = new Illustration();
+            $path = $request->file('main')->store('storage/uploads');
+            $this->resize($path, $prestation->title . 50, 'medium');
+            $illustration->path = $path;
+            $illustration->count = 50;
+            $illustration->save();
+            $prestation->main_id = $illustration->id;
+            $prestation->save();
+        }
+        if($request->has('illustrations')){
+            $table = $request->file('illustrations');
+            foreach($table as $key => $image){
+                $illustration = new Illustration();
+                $path = $image->store('storage/uploads');
+                $this->resize($path, $prestation->title . $key, 'medium');
+                $illustration->path = $path;
+                $illustration->count = $key;
+                $illustration->save();
+                $prestation->illustrations()->attach($illustration->id);
+            }
+        }
+        return redirect('/prestations');
     }
 
     public function resize($path, $name, $format)
